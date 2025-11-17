@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dosti Crown — Modern Residential Complex</title>
+  <meta name="description" content="Dosti Crown — premium residential living. Amenities, floor plans, gallery and contact." />
+  <style>
+    :root{--accent:#0f6;--dark:#0b2233;--muted:#6b7c86}
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;line-height:1.45;margin:0;color:#07303b}
+    a{color:var(--accent);text-decoration:none}
+    header{background:linear-gradient(180deg,#ffffffcc, #f8fafb);border-bottom:1px solid #eef3f5;position:sticky;top:0;z-index:20}
+    .nav{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:46px;height:46px;border-radius:8px;background:linear-gradient(135deg,#1a97ff,#5af5c7);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+    .cta{background:var(--accent);color:#052; padding:8px 12px;border-radius:10px;font-weight:600}
+    .container{max-width:1100px;margin:0 auto;padding:28px}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+    .hero h1{font-size:clamp(26px,4vw,40px);margin:0 0 12px}
+    .hero p{color:var(--muted);margin:0 0 18px}
+    .card{background:white;border-radius:12px;padding:18px;box-shadow:0 6px 20px rgba(7,48,59,0.06);border:1px solid #eef6f7}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .feature{padding:12px;border-radius:8px;background:#f6fcfb;border:1px solid #e6f6f0;text-align:center}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .section{padding:46px 0}
+    h2{margin:0 0 18px}
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+    .gallery img{width:100%;height:180px;object-fit:cover;border-radius:8px}
+    footer{background:#062a33;color:white;padding:28px}
+    .footer-grid{display:flex;gap:28px;flex-wrap:wrap}
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:#eafff4;color:#024; font-weight:600}
+
+    /* responsive */
+    @media (max-width:980px){.hero{grid-template-columns:1fr;}.grid{grid-template-columns:1fr 1fr}.gallery{grid-template-columns:repeat(2,1fr)}nav ul{display:none}}
+    @media (max-width:520px){.features{grid-template-columns:repeat(2,1fr)}.gallery img{height:120px}}
+
+    /* simple utilities */
+    .muted{color:var(--muted)}
+    .small{font-size:13px}
+    .btn{display:inline-block;padding:10px 14px;background:#052b2b;color:white;border-radius:10px}
+    .floor{border-radius:10px;padding:12px;background:#fff;border:1px solid #e8f0f0}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div class="logo">DC</div>
+        <div>
+          <div style="font-weight:700">Dosti Crown</div>
+          <div class="small muted">Premium residential living</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#amenities">Amenities</a></li>
+          <li><a href="#floorplans">Floor Plans</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact" class="cta">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero">
+      <div>
+        <h1>Welcome to Dosti Crown — Your new address</h1>
+        <p class="muted">Modern apartments thoughtfully designed for comfort, community and convenience. 1, 2 & 3 BHK options. Expected possession: 2027 (example)</p>
+
+        <div style="display:flex;gap:12px;align-items:center;margin-top:18px">
+          <a class="btn" href="#contact">Enquire Now</a>
+          <a class="small muted" href="#gallery">See gallery</a>
+        </div>
+
+        <div class="card" style="margin-top:22px">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div class="badge">Starting ₹— (placeholder)</div>
+            </div>
+            <div class="small muted">Ready-to-book: Limited units</div>
+          </div>
+
+          <div class="features">
+            <div class="feature"><strong>Gym</strong><div class="small muted">Fully equipped</div></div>
+            <div class="feature"><strong>Swimming Pool</strong><div class="small muted">Lap & leisure</div></div>
+            <div class="feature"><strong>Garden</strong><div class="small muted">Landscaped</div></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card">
+        <h3 style="margin-top:4px">Project Snapshot</h3>
+        <div style="margin-top:12px">
+          <div class="small muted">Location</div>
+          <div style="font-weight:700">Near Banon Resorts, Manali (example)</div>
+        </div>
+        <div style="margin-top:12px">
+          <div class="small muted">Possession</div>
+          <div style="font-weight:700">2027</div>
+        </div>
+
+        <div style="margin-top:14px">
+          <a href="#contact" class="btn">Request Brochure</a>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about" class="section" style="background:#fbfdfc">
+      <div class="container">
+        <h2>About Dosti Crown</h2>
+        <p class="muted">Dosti Crown is a thoughtfully planned residential complex designed to offer modern amenities, practical layouts, and easy connectivity. This page is a starter template — replace placeholder text and images with your project details.</p>
+
+        <div class="grid" style="margin-top:18px">
+          <div class="card floor">
+            <h3>1 BHK</h3>
+            <p class="small muted">Approx. 600 sq ft</p>
+          </div>
+          <div class="card floor">
+            <h3>2 BHK</h3>
+            <p class="small muted">Approx. 900 sq ft</p>
+          </div>
+          <div class="card floor">
+            <h3>3 BHK</h3>
+            <p class="small muted">Approx. 1200 sq ft</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="amenities" class="section">
+      <div class="container">
+        <h2>Amenities</h2>
+        <div style="display:flex;gap:16px;flex-wrap:wrap">
+          <div class="card" style="flex:1;min-width:260px">
+            <h3>Wellness & Sports</h3>
+            <ul class="small muted">
+              <li>Gym & Yoga area</li>
+              <li>Infinity pool</li>
+              <li>Indoor games room</li>
+            </ul>
+          </div>
+          <div class="card" style="flex:1;min-width:260px">
+            <h3>Family & Community</h3>
+            <ul class="small muted">
+              <li>Kids play area</li>
+              <li>Party lawns</li>
+              <li>Community hall</li>
+            </ul>
+          </div>
+          <div class="card" style="flex:1;min-width:260px">
+            <h3>Safety & Convenience</h3>
+            <ul class="small muted">
+              <li>24/7 security</li>
+              <li>EV charging</li>
+              <li>Ample parking</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="floorplans" class="section" style="background:#fbfdfc">
+      <div class="container">
+        <h2>Sample Floor Plans</h2>
+        <p class="muted">Download detailed floor plans in the brochure. Below are sample thumbnails — replace with your images.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+          <div style="flex:1;min-width:220px" class="card"><img src="images/floor-1.jpg" alt="1BHK" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="padding-top:8px"><strong>1 BHK</strong><div class="small muted">600 sq ft</div></div></div>
+          <div style="flex:1;min-width:220px" class="card"><img src="images/floor-2.jpg" alt="2BHK" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="padding-top:8px"><strong>2 BHK</strong><div class="small muted">900 sq ft</div></div></div>
+          <div style="flex:1;min-width:220px" class="card"><img src="images/floor-3.jpg" alt="3BHK" style="width:100%;height:160px;object-fit:cover;border-radius:8px"><div style="padding-top:8px"><strong>3 BHK</strong><div class="small muted">1200 sq ft</div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section">
+      <div class="container">
+        <h2>Gallery</h2>
+        <p class="muted">Project visuals — replace with real photos.</p>
+        <div class="gallery" style="margin-top:12px">
+          <img src="images/photo1.jpg" alt="project photo">
+          <img src="images/photo2.jpg" alt="project photo">
+          <img src="images/photo3.jpg" alt="project photo">
+          <img src="images/photo4.jpg" alt="project photo">
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section" style="background:#fbfdfc">
+      <div class="container">
+        <h2>Contact</h2>
+        <div style="display:flex;gap:18px;flex-wrap:wrap">
+          <div style="flex:1;min-width:300px" class="card">
+            <h3>Request a brochure / Visit</h3>
+            <form action="mailto:info@dosticrown.com" method="post" enctype="text/plain">
+              <label class="small muted">Name</label><br>
+              <input name="name" required style="width:100%;padding:8px;margin:8px 0;border-radius:8px;border:1px solid #e6eef0">
+              <label class="small muted">Phone</label><br>
+              <input name="phone" style="width:100%;padding:8px;margin:8px 0;border-radius:8px;border:1px solid #e6eef0">
+              <label class="small muted">Message</label><br>
+              <textarea name="message" rows="4" style="width:100%;padding:8px;margin:8px 0;border-radius:8px;border:1px solid #e6eef0"></textarea>
+              <div style="margin-top:8px"><button class="btn" type="submit">Send</button></div>
+            </form>
+          </div>
+
+          <div style="flex:1;min-width:260px" class="card">
+            <h3>Contact Details</h3>
+            <p class="small muted">Sales Office</p>
+            <p style="margin:6px 0">Phone: +91-XXXXXXXXXX</p>
+            <p style="margin:6px 0">Email: <a href="mailto:info@dosticrown.com">info@dosticrown.com</a></p>
+            <div style="margin-top:12px">
+              <div class="small muted">Location</div>
+              <div>Near Banon Resorts, Manali (example)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div style="flex:1;min-width:220px">
+        <div style="font-weight:700">Dosti Crown</div>
+        <div class="small muted">Premium residential living</div>
+      </div>
+      <div style="min-width:220px">
+        <div class="small muted">Legal</div>
+        <div class="small">Developer: Dosti Builders (placeholder)</div>
+      </div>
+      <div style="min-width:220px">
+        <div class="small muted">Follow</div>
+        <div class="small">Instagram • Facebook • LinkedIn</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll for anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        e.preventDefault();
+        const id=a.getAttribute('href');
+        if(id==='#')return;
+        document.querySelector(id).scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    });
+  </script>
+</body>
+</html>
