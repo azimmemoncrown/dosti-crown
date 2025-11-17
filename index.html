@@ -1,456 +1,136 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Dosti Crown — Create a Grand Legacy</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dosti Crown — Create a Grand Legacy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* ---------- Gradient + Premium Gold (mix of styles 3 & 4) ---------- */
+    :root{
+      --bg: linear-gradient(180deg,#fbfbff,#fff8f5);
+      --card:#ffffff;
+      --muted:#6b7280;
+      --text:#0f1724;
+      --primary-1:#0b74de; /* bright blue */
+      --primary-2:#6a00f4; /* deep purple for gradient */
+      --gold:#d99b2a;      /* premium gold */
+      --radius:14px;
+      --container:1200px;
+      --gap:18px;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      background-attachment:fixed;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      font-size:16px;
+    }
 
-<style>
-/* ----------------------------------------------- 
-   JOYFUL + OFFICIAL THEME (Clean & Corporate)
------------------------------------------------- */
-:root{
-  --bg: linear-gradient(180deg,#fffdfb,#f6fbff);
-  --card:#ffffff;
-  --muted:#6b7280;
-  --text:#072033;
-  --accent-1:#0077c8;    /* corporate blue */
-  --accent-2:#0fb8b3;    /* fresh teal */
-  --accent-3:#f59e0b;    /* premium gold */
-  --radius:14px;
-  --container:1100px;
-}
+    /* container */
+    .wrap{max-width:var(--container);margin:28px auto;padding:20px}
 
-/* Reset & Body */
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
-  background:var(--bg);
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  line-height:1.45;
-}
+    /* HEADER */
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;padding:10px 14px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));box-shadow:0 8px 30px rgba(10,20,40,0.06);backdrop-filter:blur(6px)}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:64px;width:auto;border-radius:10px;object-fit:contain;box-shadow:0 10px 30px rgba(12,20,40,0.08)}
+    .brand .title{font-family:'Playfair Display',serif;font-size:22px;margin:0;color:var(--primary-2)}
+    .brand .sub{font-size:13px;color:var(--muted);margin-top:2px}
 
-.wrap{
-  max-width:var(--container);
-  margin:26px auto;
-  padding:18px;
-}
+    nav{display:flex;gap:12px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600;position:relative}
+    nav a.cta{background:linear-gradient(90deg,var(--primary-1),var(--primary-2));color:#fff;box-shadow:0 6px 18px rgba(11,116,222,0.18)}
+    nav a::after{content:'';position:absolute;left:8px;right:8px;bottom:-8px;height:3px;border-radius:6px;opacity:0;transition:all .25s ease}
+    nav a:hover::after{opacity:1;background:linear-gradient(90deg,var(--gold),rgba(255,215,120,0.7));transform:translateY(-2px)}
 
-/* -----------------------------------------------
-   HEADER
------------------------------------------------- */
-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  background:white;
-  padding:12px 16px;
-  border-radius:12px;
-  box-shadow:0 8px 24px rgba(0,0,0,0.05);
-}
+    /* Hero with angled section and gradient ribbon */
+    .hero{position:relative;overflow:visible;padding:14px 12px;border-radius:16px;background:linear-gradient(180deg,rgba(11,116,222,0.06),rgba(106,0,244,0.02));border:1px solid rgba(10,20,40,0.03)}
+    .hero-grid{display:grid;grid-template-columns:1fr 380px;gap:20px;align-items:start}
+    .hero-left{padding:16px}
+    .ribbon{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,var(--primary-1),var(--primary-2));color:#fff;font-weight:700;font-size:13px}
+    h1.hero-title{font-family:'Playfair Display',serif;font-size:36px;margin:12px 0;color:var(--primary-2)}
+    p.lead{color:#263144;margin:0 0 12px;font-size:16px}
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-.brand img{
-  height:60px;
-  border-radius:10px;
-  object-fit:contain;
-}
-.brand .title{
-  font-family:'Playfair Display',serif;
-  font-size:22px;
-  color:var(--accent-1);
-}
-.brand .sub{
-  font-size:13px;
-  color:var(--muted);
-}
+    .hero-art{position:relative;border-radius:14px;overflow:hidden;border:6px solid rgba(255,255,255,0.7);box-shadow:0 30px 60px rgba(11,42,80,0.12)}
+    .hero-art img{display:block;width:100%;height:100%;object-fit:cover}
 
-nav{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-}
-nav a{
-  text-decoration:none;
-  color:var(--muted);
-  padding:8px 10px;
-  border-radius:8px;
-  font-weight:600;
-}
-nav a.cta{
-  background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
-  color:white;
-  box-shadow:0 8px 22px rgba(0,0,0,0.15);
-}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+    .btn{display:inline-block;padding:12px 16px;border-radius:12px;font-weight:700;text-decoration:none}
+    .btn.primary{background:linear-gradient(90deg,var(--primary-1),var(--primary-2));color:#fff;box-shadow:0 10px 30px rgba(106,0,244,0.12)}
+    .btn.ghost{background:transparent;border:2px solid var(--gold);color:var(--gold)}
 
-/* -----------------------------------------------
-   HERO
------------------------------------------------- */
-.hero{
-  margin-top:18px;
-  padding:18px;
-  border-radius:16px;
-  background:linear-gradient(180deg,rgba(0,119,200,0.05),rgba(15,184,179,0.04));
-  border:1px solid rgba(0,0,0,0.05);
-}
-.hero-grid{
-  display:grid;
-  grid-template-columns:1fr 360px;
-  gap:20px;
-  align-items:center;
-}
+    /* decorative gold divider */
+    .gold-divider{height:6px;border-radius:6px;background:linear-gradient(90deg,var(--gold),rgba(255,215,120,0.7));margin:18px 0}
 
-.ribbon{
-  padding:6px 12px;
-  border-radius:999px;
-  background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
-  color:white;
-  font-size:13px;
-  font-weight:700;
-}
+    /* cards */
+    .card{background:linear-gradient(180deg,#ffffff,#fffaf6);padding:18px;border-radius:14px;border:1px solid rgba(10,20,40,0.04);box-shadow:0 14px 40px rgba(10,20,40,0.06)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
 
-h1.hero-title{
-  font-family:'Playfair Display',serif;
-  font-size:32px;
-  color:var(--accent-1);
-  margin-bottom:8px;
-}
+    /* image grids */
+    .founders-grid,.amenities-grid,.layouts-grid{display:grid;gap:12px}
+    .founders-grid{grid-template-columns:repeat(2,1fr)}
+    .amenities-grid{grid-template-columns:repeat(4,1fr)}
+    .layouts-grid{grid-template-columns:repeat(3,1fr)}
+    .founders-grid img,.amenities-grid img,.layouts-grid img{width:100%;height:100%;object-fit:cover;border-radius:10px;border:2px solid rgba(255,255,255,0.6)}
 
-p.lead{
-  max-width:70ch;
-  color:#123241;
-}
+    /* headings with gold accent */
+    h2{font-family:'Playfair Display',serif;margin-top:0;display:flex;align-items:center;gap:12px}
+    h2::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(11,116,222,0.06),rgba(106,0,244,0.04));margin-left:8px}
+    h2 .gold{color:var(--gold);font-weight:700}
 
-.hero-art{
-  border-radius:12px;
-  overflow:hidden;
-  border:4px solid white;
-  box-shadow:0 20px 40px rgba(0,0,0,0.1);
-}
-.hero-art img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
+    /* responsive */
+    @media(max-width:980px){
+      .wrap{padding:12px}
+      .hero-grid{grid-template-columns:1fr}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .amenities-grid{grid-template-columns:repeat(2,1fr)}
+      .founders-grid{grid-template-columns:repeat(2,1fr)}
+      .layouts-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:560px){
+      .hero-grid{grid-template-columns:1fr}
+      h1.hero-title{font-size:24px}
+      .founders-grid,.amenities-grid,.layouts-grid{grid-template-columns:1fr}
+      .brand img{height:48px}
+      nav{display:flex;flex-wrap:wrap;gap:8px}
+    }
 
-/* CTA buttons */
-.cta-row{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:12px;
-}
-.btn{
-  display:inline-block;
-  padding:12px 16px;
-  border-radius:12px;
-  font-weight:700;
-  text-decoration:none;
-}
-.btn.primary{
-  background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
-  color:white;
-}
-.btn.ghost{
-  border:2px solid var(--accent-3);
-  color:var(--accent-3);
-  background:white;
-}
+    /* subtle animations */
+    .fade-up{opacity:0;transform:translateY(8px);animation:fadeUp .6s ease forwards}
+    @keyframes fadeUp{to{opacity:1;transform:none}}
 
-/* -----------------------------------------------
-   GOLD DIVIDER
------------------------------------------------- */
-.gold-divider{
-  height:6px;
-  border-radius:8px;
-  background:linear-gradient(90deg,var(--accent-3),#ffdda3);
-  margin:18px 0;
-}
-
-/* -----------------------------------------------
-   SECTIONS / CARDS
------------------------------------------------- */
-.card{
-  background:linear-gradient(180deg,#ffffff,#fff9f0);
-  padding:16px;
-  border-radius:12px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.05);
-  margin-top:18px;
-}
-h2{
-  font-family:'Playfair Display',serif;
-  font-size:26px;
-  color:var(--text);
-  margin-top:0;
-}
-h2 .gold{
-  color:var(--accent-3);
-}
-
-/* grids */
-.founders-grid,
-.amenities-grid,
-.layouts-grid{
-  display:grid;
-  gap:12px;
-}
-.founders-grid{grid-template-columns:repeat(2,1fr);}
-.amenities-grid{grid-template-columns:repeat(4,1fr);}
-.layouts-grid{grid-template-columns:repeat(3,1fr);}
-
-.founders-grid img,
-.amenities-grid img,
-.layouts-grid img{
-  width:100%;
-  aspect-ratio:5/4;
-  object-fit:cover;
-  border-radius:10px;
-  border:3px solid white;
-}
-
-/* -----------------------------------------------
-   MODAL (Lead Capture)
------------------------------------------------- */
-#callbackModal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.55);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
-  backdrop-filter:blur(4px);
-}
-.modal-box{
-  background:white;
-  width:90%;
-  max-width:420px;
-  padding:22px;
-  border-radius:14px;
-  box-shadow:0 20px 60px rgba(0,0,0,0.25);
-}
-
-/* Admin CTA */
-.admin-cta{
-  position:fixed;
-  bottom:22px;
-  right:22px;
-  padding:10px 16px;
-  border-radius:12px;
-  background:linear-gradient(90deg,#ffcd72,#ff78b6);
-  color:#06202e;
-  font-weight:700;
-  text-decoration:none;
-  box-shadow:0 8px 20px rgba(0,0,0,0.25);
-  z-index:9999;
-}
-
-/* -----------------------------------------------
-   RESPONSIVE
------------------------------------------------- */
-@media(max-width:980px){
-  .hero-grid{
-    grid-template-columns:1fr;
-  }
-  .amenities-grid{grid-template-columns:repeat(2,1fr);}
-  .layouts-grid{grid-template-columns:repeat(2,1fr);}
-}
-
-@media(max-width:560px){
-  header{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-  nav{gap:6px;}
-  .brand img{height:48px;}
-  .hero-grid{grid-template-columns:1fr;}
-  .founders-grid,
-  .amenities-grid,
-  .layouts-grid{grid-template-columns:1fr;}
-}
-</style>
+    .muted{color:var(--muted)}
+  </style>
 </head>
-
 <body>
 <div class="wrap">
 
-<!-- ---------------------------------------------------
-     HEADER
----------------------------------------------------- -->
 <header>
-  <div class="brand">
-    <img src="assets/logo.jpg" onerror="this.style.display='none'">
-    <div>
-      <div class="title">Dosti Crown</div>
-      <div class="sub">Create a Grand Legacy</div>
-    </div>
+  <div>
+    <div class="title">Dosti Crown</div>
+    <div class="subtitle">Create a Grand Legacy</div>
   </div>
-
   <nav>
     <a href="#home">Home</a>
-    <a href="#founders">Founders</a>
+    <a href="#features">Features</a>
     <a href="#amenities">Amenities</a>
-    <a href="#flats">Layouts</a>
-    <a href="#contact" class="cta">Contact</a>
+    <a href="#complaints">Complaints</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<!-- ---------------------------------------------------
-     HERO SECTION
----------------------------------------------------- -->
-<section id="home" class="hero fade-up">
-  <div class="hero-grid">
-    <div>
-      <div class="ribbon">Limited Release</div>
-      <h1 class="hero-title">Create a Grand Legacy</h1>
-      <p class="lead">Premium residential community conceived by friends and delivered with Dosti Developers — near Shilphata, Thane 400612.</p>
-
-      <div class="cta-row">
-        <a href="assets/Dosti_Crown_ebrochure.pdf" class="btn primary" target="_blank">Download Brochure</a>
-        <a href="#" class="btn ghost" onclick="openCallbackModal()">Request Callback</a>
-      </div>
-    </div>
-
-    <div class="hero-art">
-      <img src="assets/building.jpg" onerror="this.style.display='none'">
-    </div>
-  </div>
-</section>
-
-<!-- ---------------------------------------------------
-     FOUNDERS
----------------------------------------------------- -->
-<section id="founders" class="card">
-  <h2>Founders' Vision <span class="gold">•</span></h2>
-  <p class="muted">Created by a group of friends with a shared dream of modern living rooted in warmth and community.</p>
-
-  <div class="founders-grid">
-    <img src="assets/image1.jpg" onerror="this.style.display='none'">
-    <img src="assets/image2.jpg" onerror="this.style.display='none'">
-    <img src="assets/image3.jpg" onerror="this.style.display='none'">
-    <img src="assets/image4.jpg" onerror="this.style.display='none'">
-  </div>
-</section>
-
-<!-- ---------------------------------------------------
-     AMENITIES
----------------------------------------------------- -->
-<section id="amenities" class="card">
-  <h2>Amenities & Highlights <span class="gold">•</span></h2>
-  <ul>
-    <li>Clubhouse for recreation</li>
-    <li>Gym & sports amenities</li>
-    <li>Landscaped relaxation gardens</li>
-  </ul>
-
-  <div class="amenities-grid">
-    <img src="assets/club1.jpg" onerror="this.style.display='none'">
-    <img src="assets/club2.jpg" onerror="this.style.display='none'">
-    <img src="assets/club3.jpg" onerror="this.style.display='none'">
-    <img src="assets/club4.jpg" onerror="this.style.display='none'">
-  </div>
-</section>
-
-<!-- ---------------------------------------------------
-     FLAT LAYOUTS
----------------------------------------------------- -->
-<section id="flats" class="card">
-  <h2>Flat Layouts & Designs <span class="gold">•</span></h2>
-
-  <div class="layouts-grid">
-    <div>
-      <img src="assets/2bhktype1.jpg" onerror="this.style.display='none'">
-      <div style="margin-top:8px;font-weight:700">2BHK Type 1</div>
-      <a href="assets/2bhktype1.jpg" download>Download</a>
-    </div>
-
-    <div>
-      <img src="assets/2bhktype2.jpg" onerror="this.style.display='none'">
-      <div style="margin-top:8px;font-weight:700">2BHK Type 2</div>
-      <a href="assets/2bhktype2.jpg" download>Download</a>
-    </div>
-
-    <div>
-      <img src="assets/1bhk.jpg" onerror="this.style.display='none'">
-      <div style="margin-top:8px;font-weight:700">1BHK</div>
-      <a href="assets/1bhk.jpg" download>Download</a>
-    </div>
-  </div>
-</section>
-
-<!-- ---------------------------------------------------
-     COMPLAINT WORKFLOW
----------------------------------------------------- -->
-<section id="complaints" class="card">
-  <h2>Complaint Management Workflow <span class="gold">•</span></h2>
-  <ol class="muted">
-    <li>Log complaint</li>
-    <li>Acknowledgement with ticket ID</li>
-    <li>Team allocation & site review</li>
-    <li>Resolution & resident confirmation</li>
-    <li>Closure & feedback</li>
-  </ol>
-</section>
-
-<!-- ---------------------------------------------------
-     DOS & DONTS
----------------------------------------------------- -->
-<section id="dosdonts" class="card">
-  <h2>Do's & Don'ts <span class="gold">•</span></h2>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px">
-    <div>
-      <h4>Do's</h4>
-      <ul class="muted">
-        <li>Maintain cleanliness</li>
-        <li>Report issues promptly</li>
-        <li>Follow safety guidelines</li>
-      </ul>
-    </div>
-    <div>
-      <h4>Don'ts</h4>
-      <ul class="muted">
-        <li>No tampering with equipment</li>
-        <li>No blocking fire exits</li>
-        <li>No excessive late-night noise</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ---------------------------------------------------
-     CONTACT
----------------------------------------------------- -->
-<section id="contact" class="card">
-  <h2>Contact Us <span class="gold">•</span></h2>
-  <p><strong>Email:</strong> <a href="mailto:azim.memon@dosticrown.com">azim.memon@dosticrown.com</a></p>
-  <p><strong>Address:</strong><br>Dosti Planet North, Shilphata, Thane - 400612</p>
-</section>
-
-<!-- ---------------------------------------------------
-     FOOTER
----------------------------------------------------- -->
-<footer style="margin-top:28px;color:var(--muted);font-size:14px;text-align:center;">
-  &copy; <span id="year"></span> Dosti Crown. All Rights Reserved.
-</footer>
-
-</div>
-
-<!-- ---------------------------------------------------
-     CALLBACK MODAL
----------------------------------------------------- -->
-<div id="callbackModal">
-  <div class="modal-box">
-    <h2 style="margin-top:0">Request a Callback</h2>
-    <p class="muted">Please fill your details. Our team will call you shortly.</p>
+<!-- Callback Modal -->
+<div id="callbackModal" style="position:fixed;inset:0;background:rgba(0,0,0,0.55);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:9999;">
+  <div style="background:white;width:90%;max-width:420px;padding:22px;border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,0.25);animation:fadeUp .4s ease;">
+    <h2 style="margin-top:0;font-family:'Playfair Display',serif">Request a Callback</h2>
+    <p class="muted">Fill your details and our team will reach out.</p>
 
     <label>Name</label>
     <input id="cb_name" type="text" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;margin:6px 0 12px 0;">
@@ -458,70 +138,197 @@ h2 .gold{
     <label>Contact Number</label>
     <input id="cb_phone" type="text" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;margin:6px 0 18px 0;">
 
-    <button onclick="submitCallbackLead()" class="btn primary" style="width:100%;">Submit</button>
-    <button onclick="closeCallbackModal()" class="btn ghost" style="width:100%;margin-top:10px;">Cancel</button>
+    <button onclick="submitCallbackLead()" style="width:100%;padding:12px;border:none;border-radius:10px;background:linear-gradient(90deg,#0b74de,#6a00f4);color:white;font-weight:700;font-size:15px;cursor:pointer">Submit</button>
+
+    <button onclick="closeCallbackModal()" style="width:100%;margin-top:10px;padding:10px;border-radius:10px;border:1px solid #aaa;background:white;font-weight:600;cursor:pointer">Cancel</button>
   </div>
 </div>
 
-<!-- ADMIN CTA BUTTON -->
-<a href="#adminLeads" class="admin-cta">Admin Leads</a>
+<!-- Admin Leads Panel CTA -->
+<a href="#adminLeads" style="position:fixed;bottom:20px;right:20px;padding:10px 16px;border-radius:12px;background:linear-gradient(90deg,#ffd27a,#ff7ab6);color:#081222;font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,0.25);text-decoration:none;z-index:9999;">Admin Leads</a>
+
+
+<section id="home" class="hero">
+  <!-- New Hero Image Placeholder -->
+<div class="hero-image">
+  <img src="assets/building.jpg" alt="Building" style="width:100%;border-radius:12px;object-fit:cover;" onerror="this.style.display='none'">
+</div>
+</div>
+  <h1>Create a Grand Legacy</h1>
+  <p>
+    Dosti Crown at Dosti Planet North — premium residences designed for modern living,
+    thoughtfully built near Shilphata, Thane 400612.
+  </p>
+  <a class="btn" href="assets/Dosti_Crown_ebrochure.pdf" target="_blank">Download Brochure</a>
+</section>
+
+<section id="founders" class="card">
+  <h2>Founders' Vision</h2>
+  <p>What began as a heartfelt idea among friends — to create a space that embodies comfort, elegance and community — has now become a reality.</p>
+  <div class="founders-grid">
+    <img src="assets/image1.jpg" onerror="this.style.display='none'">
+    <img src="assets/image2.jpg" onerror="this.style.display='none'">
+    <img src="assets/image3.jpg" onerror="this.style.display='none'">
+    <img src="assets/image4.jpg" onerror="this.style.display='none'">
+    <img src="assets/image5.jpg" onerror="this.style.display='none'">
+  </div>
+</section>
+
+<section id="features" class="card">
+  <h2>Project Features</h2>
+  <ul>
+    <li>Prime location within Dosti Planet North</li>
+    <li>Elegant layouts designed for practical living</li>
+    <li>Modern lifestyle amenities</li>
+  </ul>
+</section>
+
+<section id="amenities" class="card">
+  <h2>Amenities & Highlights</h2>
+  <ul>
+    <li>Clubhouse & indoor recreation</li>
+    <li>Gym, jogging track & outdoor activity zones</li>
+    <li>Landscaped gardens & relaxation spaces</li>
+  </ul>
+  <div class="amenities-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px;">
+    <img src="assets/club1.jpg" alt="Amenity 1" onerror="this.style.display='none'" style="width:100%;border-radius:10px;object-fit:cover;">
+    <img src="assets/club2.jpg" alt="Amenity 2" onerror="this.style.display='none'" style="width:100%;border-radius:10px;object-fit:cover;">
+    <img src="assets/club3.jpg" alt="Amenity 3" onerror="this.style.display='none'" style="width:100%;border-radius:10px;object-fit:cover;">
+    <img src="assets/club4.jpg" alt="Amenity 4" onerror="this.style.display='none'" style="width:100%;border-radius:10px;object-fit:cover;">
+  </div>
+</section>
+
+<!-- Ad image removed -->
+
+<!-- FLAT LAYOUTS & 3D DESIGNS -->
+<section id="flats" class="card">
+  <h2>Flat layouts & 3D designs</h2>
+  <p class="muted">Explore the proposed flat layouts and 3D visualisations. Click any image to view a larger version or download the plan.</p>
+
+  <div class="layouts-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px;">
+    <div style="text-align:center">
+      <img src="assets/2bhktype1.jpg" alt="2BHK Type 1" onerror="this.style.display='none'" style="width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:10px">
+      <div style="margin-top:8px;font-weight:600">2BHK Type 1</div>
+      <a href="assets/2bhktype1.jpg" download style="display:inline-block;margin-top:6px;color:var(--primary);text-decoration:none">Download</a>
+    </div>
+
+    <div style="text-align:center">
+      <img src="assets/2bhktype2.jpg" alt="2BHK Type 2" onerror="this.style.display='none'" style="width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:10px">
+      <div style="margin-top:8px;font-weight:600">2BHK Type 2</div>
+      <a href="assets/2bhktype2.jpg" download style="display:inline-block;margin-top:6px;color:var(--primary);text-decoration:none">Download</a>
+    </div>
+
+    <div style="text-align:center">
+      <img src="assets/1bhk.jpg" alt="1BHK" onerror="this.style.display='none'" style="width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:10px">
+      <div style="margin-top:8px;font-weight:600">1BHK</div>
+      <a href="assets/1bhk.jpg" download style="display:inline-block;margin-top:6px;color:var(--primary);text-decoration:none">Download</a>
+    </div>
+  </div>
+
+  <p class="muted" style="margin-top:12px">If you prefer PDF floorplans, upload files named <code>2bhktype1.pdf</code>, <code>2bhktype2.pdf</code> and <code>1bhk.pdf</code> into the <code>/assets</code> folder and I will add direct download links.</p>
+</section>
+
+<section id="complaints" class="card">
+  <h2>Complaint Management Workflow</h2>
+  <ol>
+    <li>Log complaint — via form, email or phone</li>
+    <li>Acknowledgement with ticket ID</li>
+    <li>Category assignment & team allocation</li>
+    <li>Inspection and investigation</li>
+    <li>Resolution & resident confirmation</li>
+    <li>Closure & feedback survey</li>
+  </ol>
+</section>
+
+<section id="dosdonts" class="card">
+  <h2>Do's & Don'ts</h2>
+  <h3>Do's</h3>
+  <ul>
+    <li>Report issues promptly</li>
+    <li>Maintain cleanliness in common areas</li>
+    <li>Respect community guidelines</li>
+  </ul>
+  <h3>Don'ts</h3>
+  <ul>
+    <li>Do not block fire exits or corridors</li>
+    <li>Do not tamper with facility equipment</li>
+    <li>Do not create excessive noise late at night</li>
+  </ul>
+</section>
+
+<section id="contact" class="card">
+  <h2>Contact Us</h2>
+  <p><strong>Email:</strong> <a href="mailto:azim.memon@dosticrown.com">azim.memon@dosticrown.com</a></p>
+  <p><strong>Project Address:</strong><br>Dosti Planet North, near Shilphata, Thane - 400612</p>
+</section>
+
+<footer>
+  &copy; <span id="year"></span> Dosti Crown. All rights reserved.
+</footer>
 
 <!-- ADMIN LEADS VIEW -->
-<section id="adminLeads" class="card" style="margin-top:30px">
+<section id="adminLeads" class="card fade-up" style="margin-top:30px">
   <h2>Captured Leads <span class="gold">•</span></h2>
   <div id="leadList" class="muted">No leads yet</div>
 </section>
 
-<!-- ---------------------------------------------------
-     SCRIPTS
----------------------------------------------------- -->
-<script>
-document.getElementById('year').textContent = new Date().getFullYear();
 
-/* Modal Controls */
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</div>
+<script>
+// Open modal
 function openCallbackModal(){
   document.getElementById('callbackModal').style.display='flex';
 }
+// Close modal
 function closeCallbackModal(){
   document.getElementById('callbackModal').style.display='none';
 }
 
-/* Save leads */
+// Override callback buttons
+window.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('a[href="#contact"], .btn.ghost').forEach(btn=>{
+    btn.addEventListener('click',function(e){
+      e.preventDefault();
+      openCallbackModal();
+    });
+  });
+});
+
+// Submit lead
 function submitCallbackLead(){
-  const name = document.getElementById('cb_name').value.trim();
-  const phone = document.getElementById('cb_phone').value.trim();
+  const name=document.getElementById('cb_name').value.trim();
+  const phone=document.getElementById('cb_phone').value.trim();
+  if(!name||!phone){alert('Please fill all fields');return;}
 
-  if(!name || !phone){ alert('Please fill all fields'); return; }
+  const lead={name,phone,time:new Date().toLocaleString()};
+  let stored=JSON.parse(localStorage.getItem('dosti_leads')||"[]");
+  stored.push(lead);
+  localStorage.setItem('dosti_leads',JSON.stringify(stored));
 
-  const lead = { name, phone, time:new Date().toLocaleString() };
-  const leads = JSON.parse(localStorage.getItem('dosti_leads') || "[]");
-  leads.push(lead);
-  localStorage.setItem('dosti_leads', JSON.stringify(leads));
-
+  document.getElementById('cb_name').value='';
+  document.getElementById('cb_phone').value='';
   closeCallbackModal();
   loadLeads();
-  alert("Thank you! We'll reach out shortly.");
+  alert('Thank you! We will call you shortly.');
 }
 
-/* Load leads */
+// Load leads in admin section
 function loadLeads(){
-  const leads = JSON.parse(localStorage.getItem('dosti_leads') || "[]");
-  const box = document.getElementById('leadList');
+  let stored=JSON.parse(localStorage.getItem('dosti_leads')||"[]");
+  const list=document.getElementById('leadList');
+  if(stored.length===0){list.innerHTML='No leads yet';return;}
 
-  if(leads.length === 0){
-    box.innerHTML = 'No leads yet';
-    return;
-  }
-
-  box.innerHTML = leads.map(l =>
-    `<div style="padding:10px;border-bottom:1px solid #eee;">
-       <strong>${l.name}</strong> — ${l.phone}<br>
-       <span style="font-size:12px;color:#777">${l.time}</span>
-     </div>`
-  ).join('');
+  let html='';
+  stored.forEach((l,i)=>{
+    html+=`<div style="padding:10px;border-bottom:1px solid #eee"><strong>${l.name}</strong> — ${l.phone}<br><span style="font-size:12px;color:#777">${l.time}</span></div>`;
+  });
+  list.innerHTML=html;
 }
 loadLeads();
 </script>
-
 </body>
 </html>
