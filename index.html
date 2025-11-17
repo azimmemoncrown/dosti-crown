@@ -81,18 +81,37 @@
   /* Footer */
   footer{margin-top:26px;text-align:center;color:var(--muted);font-size:14px;padding-bottom:20px}
 
-  /* Responsive */
-  @media(max-width:1000px){.hero{grid-template-columns:1fr}}
+  /* WhatsApp floating button */
+  .whatsapp-fab{
+    position:fixed;
+    right:18px;
+    bottom:86px; /* above admin CTA */
+    z-index:10000;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    background:linear-gradient(90deg,#25d366,#128c7e);
+    color:white;
+    padding:12px 14px;
+    border-radius:999px;
+    box-shadow:0 12px 40px rgba(5,60,40,0.18);
+    font-weight:700;
+  }
+  .whatsapp-fab img{height:20px;width:20px;display:inline-block}
+
+  /* small screen adjust */
   @media(max-width:760px){
     .founders-grid{grid-template-columns:repeat(2,1fr)}
     .amenities-grid{grid-template-columns:repeat(2,1fr)}
     .layouts-grid{grid-template-columns:repeat(1,1fr)}
     .hero-art{height:220px}
+    .whatsapp-fab{right:14px;bottom:86px}
   }
   @media(max-width:420px){
     .founders-grid{grid-template-columns:1fr}
+    .hero{grid-template-columns:1fr}
   }
-
 </style>
 </head>
 <body>
@@ -218,7 +237,7 @@
       <p class="muted">Project Address: Dosti Planet North, near Shilphata, Thane - 400612</p>
     </section>
 
-    <!-- Admin Leads (hidden by default until CTA) -->
+    <!-- Admin Leads -->
     <section id="adminLeads" class="card" style="margin-top:18px">
       <h2>Captured Leads</h2>
       <div id="leadList" class="muted">No leads yet</div>
@@ -227,7 +246,6 @@
     <footer>
       © <span id="year"></span> Dosti Crown — <a href="disclaimer.html">Disclaimer</a>
     </footer>
-
   </div>
 
   <!-- Callback Modal -->
@@ -242,15 +260,24 @@
     </div>
   </div>
 
+  <!-- WhatsApp Floating Button (Talk to our Property Expert) -->
+  <!-- Replace 91XXXXXXXXXX with your number in international format (example: 919812345678) -->
+  <a class="whatsapp-fab" id="waFab" href="https://wa.me/91XXXXXXXXXX?text=Hello%2C%20I%27m%20interested%20in%20Dosti%20Crown.%20Please%20connect%20me." target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'><path d='M20.52 3.48A11.9 11.9 0 0012 0C5.373 0 0 5.373 0 12c0 2.11.55 4.09 1.6 5.85L0 24l6.45-1.68A11.915 11.915 0 0012 24c6.627 0 12-5.373 12-12 0-3.2-1.26-6.16-3.48-8.52zM12 21.5c-1.54 0-3.03-.38-4.34-1.09l-.31-.16-3.84 1 1-3.73-.17-.32A9.5 9.5 0 013 12 9.5 9.5 0 0112 2.5 9.5 9.5 0 0121.5 12 9.5 9.5 0 0112 21.5z'/><path d='M17.2 14.18c-.29-.14-1.72-.85-1.98-.95-.26-.11-.45-.14-.64.14-.19.28-.72.95-.88 1.15-.16.19-.32.21-.6.07-.28-.14-1.18-.43-2.25-1.39-.83-.74-1.39-1.66-1.55-1.94-.16-.28-.02-.43.12-.57.12-.12.28-.32.42-.48.14-.16.19-.28.29-.46.1-.18.04-.34-.02-.48-.06-.14-.64-1.54-.88-2.12-.23-.56-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.32-.26.25-1 1-1 2.44 0 1.44 1.03 2.83 1.17 3.03.14.19 2.02 3.08 4.9 4.31 2.88 1.24 2.88.83 3.4.78.52-.06 1.72-.7 1.96-1.37.24-.67.24-1.24.17-1.37-.07-.13-.26-.19-.55-.33z'/></svg>" alt="WhatsApp">
+    Talk to our Property Expert
+  </a>
+
+  <!-- Admin Leads CTA -->
   <a class="admin-cta" href="#adminLeads">Admin Leads</a>
 
 <script>
-  // preserve existing functions & behavior
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  function openCallbackModal(){ document.getElementById('callbackModal').style.display='flex' }
-  function closeCallbackModal(){ document.getElementById('callbackModal').style.display='none' }
+  // Modal functions
+  function openCallbackModal(){ document.getElementById('callbackModal').style.display='flex'; }
+  function closeCallbackModal(){ document.getElementById('callbackModal').style.display='none'; }
 
+  // Lead capture (localStorage)
   function submitCallbackLead(){
     const name = document.getElementById('cb_name').value.trim();
     const phone = document.getElementById('cb_phone').value.trim();
@@ -272,6 +299,16 @@
     el.innerHTML = leads.map(l => `<div><strong>${l.name}</strong> — ${l.phone}<br><small style="color:#666">${l.time}</small></div>`).join('');
   }
   loadLeads();
+
+  // Optional: show small tooltip when hovered (mobile devices won't show hover)
+  const waFab = document.getElementById('waFab');
+  waFab.addEventListener('click', () => {
+    // nothing special — link opens WhatsApp. Keeping event handler minimal.
+  });
+
+  // Instruction: Replace placeholder WhatsApp number
+  // Example: change "91XXXXXXXXXX" in the href to "919812345678" (country code + 10-digit number).
+  // If you want, I can inject your number directly if you paste it here.
 </script>
 </body>
 </html>
