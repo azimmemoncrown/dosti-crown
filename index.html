@@ -1,120 +1,527 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Dosti Crown — Create a Grand Legacy</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-  /* Joyful yet official palette & shared layout (drop-in) */
-  :root{
-    --bg: linear-gradient(180deg,#fffdfb,#f6fbff);
-    --card:#ffffff;
-    --muted:#6b7280;
-    --text:#072033;
-    --accent-1:#0077c8;    /* confident blue */
-    --accent-2:#0fb8b3;    /* friendly teal */
-    --accent-3:#f59e0b;    /* warm gold for highlights */
-    --soft:#ffdede;        /* subtle warm tint for small accents */
-    --radius:14px;
-    --container:1200px;
-    --gap:18px;
+/* ----------------------------------------------- 
+   JOYFUL + OFFICIAL THEME (Clean & Corporate)
+------------------------------------------------ */
+:root{
+  --bg: linear-gradient(180deg,#fffdfb,#f6fbff);
+  --card:#ffffff;
+  --muted:#6b7280;
+  --text:#072033;
+  --accent-1:#0077c8;    /* corporate blue */
+  --accent-2:#0fb8b3;    /* fresh teal */
+  --accent-3:#f59e0b;    /* premium gold */
+  --radius:14px;
+  --container:1100px;
+}
+
+/* Reset & Body */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.45;
+}
+
+.wrap{
+  max-width:var(--container);
+  margin:26px auto;
+  padding:18px;
+}
+
+/* -----------------------------------------------
+   HEADER
+------------------------------------------------ */
+header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  background:white;
+  padding:12px 16px;
+  border-radius:12px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.05);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.brand img{
+  height:60px;
+  border-radius:10px;
+  object-fit:contain;
+}
+.brand .title{
+  font-family:'Playfair Display',serif;
+  font-size:22px;
+  color:var(--accent-1);
+}
+.brand .sub{
+  font-size:13px;
+  color:var(--muted);
+}
+
+nav{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+nav a{
+  text-decoration:none;
+  color:var(--muted);
+  padding:8px 10px;
+  border-radius:8px;
+  font-weight:600;
+}
+nav a.cta{
+  background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
+  color:white;
+  box-shadow:0 8px 22px rgba(0,0,0,0.15);
+}
+
+/* -----------------------------------------------
+   HERO
+------------------------------------------------ */
+.hero{
+  margin-top:18px;
+  padding:18px;
+  border-radius:16px;
+  background:linear-gradient(180deg,rgba(0,119,200,0.05),rgba(15,184,179,0.04));
+  border:1px solid rgba(0,0,0,0.05);
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 360px;
+  gap:20px;
+  align-items:center;
+}
+
+.ribbon{
+  padding:6px 12px;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
+  color:white;
+  font-size:13px;
+  font-weight:700;
+}
+
+h1.hero-title{
+  font-family:'Playfair Display',serif;
+  font-size:32px;
+  color:var(--accent-1);
+  margin-bottom:8px;
+}
+
+p.lead{
+  max-width:70ch;
+  color:#123241;
+}
+
+.hero-art{
+  border-radius:12px;
+  overflow:hidden;
+  border:4px solid white;
+  box-shadow:0 20px 40px rgba(0,0,0,0.1);
+}
+.hero-art img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* CTA buttons */
+.cta-row{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+.btn{
+  display:inline-block;
+  padding:12px 16px;
+  border-radius:12px;
+  font-weight:700;
+  text-decoration:none;
+}
+.btn.primary{
+  background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
+  color:white;
+}
+.btn.ghost{
+  border:2px solid var(--accent-3);
+  color:var(--accent-3);
+  background:white;
+}
+
+/* -----------------------------------------------
+   GOLD DIVIDER
+------------------------------------------------ */
+.gold-divider{
+  height:6px;
+  border-radius:8px;
+  background:linear-gradient(90deg,var(--accent-3),#ffdda3);
+  margin:18px 0;
+}
+
+/* -----------------------------------------------
+   SECTIONS / CARDS
+------------------------------------------------ */
+.card{
+  background:linear-gradient(180deg,#ffffff,#fff9f0);
+  padding:16px;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.05);
+  margin-top:18px;
+}
+h2{
+  font-family:'Playfair Display',serif;
+  font-size:26px;
+  color:var(--text);
+  margin-top:0;
+}
+h2 .gold{
+  color:var(--accent-3);
+}
+
+/* grids */
+.founders-grid,
+.amenities-grid,
+.layouts-grid{
+  display:grid;
+  gap:12px;
+}
+.founders-grid{grid-template-columns:repeat(2,1fr);}
+.amenities-grid{grid-template-columns:repeat(4,1fr);}
+.layouts-grid{grid-template-columns:repeat(3,1fr);}
+
+.founders-grid img,
+.amenities-grid img,
+.layouts-grid img{
+  width:100%;
+  aspect-ratio:5/4;
+  object-fit:cover;
+  border-radius:10px;
+  border:3px solid white;
+}
+
+/* -----------------------------------------------
+   MODAL (Lead Capture)
+------------------------------------------------ */
+#callbackModal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  backdrop-filter:blur(4px);
+}
+.modal-box{
+  background:white;
+  width:90%;
+  max-width:420px;
+  padding:22px;
+  border-radius:14px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.25);
+}
+
+/* Admin CTA */
+.admin-cta{
+  position:fixed;
+  bottom:22px;
+  right:22px;
+  padding:10px 16px;
+  border-radius:12px;
+  background:linear-gradient(90deg,#ffcd72,#ff78b6);
+  color:#06202e;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);
+  z-index:9999;
+}
+
+/* -----------------------------------------------
+   RESPONSIVE
+------------------------------------------------ */
+@media(max-width:980px){
+  .hero-grid{
+    grid-template-columns:1fr;
   }
+  .amenities-grid{grid-template-columns:repeat(2,1fr);}
+  .layouts-grid{grid-template-columns:repeat(2,1fr);}
+}
 
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;
-    font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-    color:var(--text);
-    background:var(--bg);
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    line-height:1.45;
-    font-size:16px;
-  }
-
-  /* container */
-  .wrap{max-width:var(--container);margin:26px auto;padding:18px}
-
-  /* header */
+@media(max-width:560px){
   header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    margin-bottom:18px;
-    padding:10px 12px;
-    border-radius:12px;
-    background:rgba(255,255,255,0.92);
-    box-shadow:0 8px 30px rgba(4,20,40,0.04);
+    flex-direction:column;
+    align-items:flex-start;
   }
-  .brand{display:flex;align-items:center;gap:12px}
-  .brand img{height:60px;width:auto;border-radius:8px;object-fit:contain;display:block}
-  .brand .title{font-family:'Playfair Display',serif;font-size:20px;margin:0;color:var(--accent-1)}
-  .brand .sub{font-size:13px;color:var(--muted)}
-
-  nav{display:flex;gap:12px;align-items:center}
-  nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:9px;font-weight:600}
-  nav a.cta{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white;box-shadow:0 8px 24px rgba(11,116,222,0.12)}
-
-  /* hero */
-  .hero{
-    border-radius:14px;
-    overflow:visible;
-    padding:18px;
-    background:linear-gradient(180deg,rgba(11,116,222,0.06),rgba(15,184,179,0.02));
-    border:1px solid rgba(10,20,40,0.03);
-    margin-bottom:10px;
-  }
-  .hero-grid{display:grid;grid-template-columns:1fr 380px;gap:18px;align-items:start}
-  .ribbon{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white;font-weight:700;font-size:13px}
-  h1.hero-title{font-family:'Playfair Display',serif;font-size:34px;margin:10px 0;color:var(--accent-1)}
-  p.lead{color:#123241;margin:0 0 12px;max-width:66ch}
-
-  .hero-art{position:relative;border-radius:12px;overflow:hidden;border:5px solid rgba(255,255,255,0.75);box-shadow:0 20px 45px rgba(4,20,40,0.08)}
-  .hero-art img{display:block;width:100%;height:100%;object-fit:cover}
-
-  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
-  .btn{display:inline-block;padding:12px 16px;border-radius:12px;font-weight:700;text-decoration:none}
-  .btn.primary{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white;box-shadow:0 10px 28px rgba(11,116,222,0.12)}
-  .btn.ghost{background:transparent;border:2px solid var(--accent-3);color:var(--accent-3)}
-
-  /* decorative divider */
-  .gold-divider{height:6px;border-radius:8px;background:linear-gradient(90deg,var(--accent-3),#ffd27a);margin:18px 0}
-
-  /* content cards */
-  .card{background:linear-gradient(180deg,#ffffff,#fffaf3);padding:16px;border-radius:12px;border:1px solid rgba(10,20,40,0.04);box-shadow:0 12px 30px rgba(4,20,40,0.05);margin-top:16px}
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px}
-  .card h3{margin:0 0 8px}
-
-  /* image grids */
-  .founders-grid,.amenities-grid,.layouts-grid{display:grid;gap:12px}
-  .founders-grid{grid-template-columns:repeat(2,1fr)}
-  .amenities-grid{grid-template-columns:repeat(4,1fr)}
-  .layouts-grid{grid-template-columns:repeat(3,1fr)}
-  .founders-grid img,.amenities-grid img,.layouts-grid img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:10px;border:2px solid rgba(255,255,255,0.75)}
-
-  /* colorful panels for variety */
-  .panel-soft{background:linear-gradient(180deg,rgba(15,184,179,0.04),rgba(11,116,222,0.02));padding:12px;border-radius:10px;border:1px solid rgba(11,116,222,0.04)}
-
-  /* utilities */
-  .muted{color:var(--muted)}
-  .small{font-size:13px;color:var(--muted)}
-
-  /* responsive */
-  @media(max-width:980px){
-    .wrap{padding:14px}
-    .hero-grid{grid-template-columns:1fr}
-    .cards{grid-template-columns:repeat(2,1fr)}
-    .amenities-grid{grid-template-columns:repeat(2,1fr)}
-    .founders-grid{grid-template-columns:repeat(2,1fr)}
-    .layouts-grid{grid-template-columns:repeat(2,1fr)}
-    .hero-art{height:320px}
-  }
-  @media(max-width:560px){
-    .hero{padding:12px}
-    h1.hero-title{font-size:24px}
-    .founders-grid,.amenities-grid,.layouts-grid{grid-template-columns:1fr}
-    .brand img{height:48px}
-    nav{display:flex;flex-wrap:wrap;gap:8px}
-    .cta-row{flex-direction:column}
-  }
-
-  /* subtle animations */
-  .fade-up{opacity:0;transform:translateY(8px);animation:fadeUp .5s ease forwards}
-  @keyframes fadeUp{to{opacity:1;transform:none}}
+  nav{gap:6px;}
+  .brand img{height:48px;}
+  .hero-grid{grid-template-columns:1fr;}
+  .founders-grid,
+  .amenities-grid,
+  .layouts-grid{grid-template-columns:1fr;}
+}
 </style>
+</head>
+
+<body>
+<div class="wrap">
+
+<!-- ---------------------------------------------------
+     HEADER
+---------------------------------------------------- -->
+<header>
+  <div class="brand">
+    <img src="assets/logo.jpg" onerror="this.style.display='none'">
+    <div>
+      <div class="title">Dosti Crown</div>
+      <div class="sub">Create a Grand Legacy</div>
+    </div>
+  </div>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#founders">Founders</a>
+    <a href="#amenities">Amenities</a>
+    <a href="#flats">Layouts</a>
+    <a href="#contact" class="cta">Contact</a>
+  </nav>
+</header>
+
+<!-- ---------------------------------------------------
+     HERO SECTION
+---------------------------------------------------- -->
+<section id="home" class="hero fade-up">
+  <div class="hero-grid">
+    <div>
+      <div class="ribbon">Limited Release</div>
+      <h1 class="hero-title">Create a Grand Legacy</h1>
+      <p class="lead">Premium residential community conceived by friends and delivered with Dosti Developers — near Shilphata, Thane 400612.</p>
+
+      <div class="cta-row">
+        <a href="assets/Dosti_Crown_ebrochure.pdf" class="btn primary" target="_blank">Download Brochure</a>
+        <a href="#" class="btn ghost" onclick="openCallbackModal()">Request Callback</a>
+      </div>
+    </div>
+
+    <div class="hero-art">
+      <img src="assets/building.jpg" onerror="this.style.display='none'">
+    </div>
+  </div>
+</section>
+
+<!-- ---------------------------------------------------
+     FOUNDERS
+---------------------------------------------------- -->
+<section id="founders" class="card">
+  <h2>Founders' Vision <span class="gold">•</span></h2>
+  <p class="muted">Created by a group of friends with a shared dream of modern living rooted in warmth and community.</p>
+
+  <div class="founders-grid">
+    <img src="assets/image1.jpg" onerror="this.style.display='none'">
+    <img src="assets/image2.jpg" onerror="this.style.display='none'">
+    <img src="assets/image3.jpg" onerror="this.style.display='none'">
+    <img src="assets/image4.jpg" onerror="this.style.display='none'">
+  </div>
+</section>
+
+<!-- ---------------------------------------------------
+     AMENITIES
+---------------------------------------------------- -->
+<section id="amenities" class="card">
+  <h2>Amenities & Highlights <span class="gold">•</span></h2>
+  <ul>
+    <li>Clubhouse for recreation</li>
+    <li>Gym & sports amenities</li>
+    <li>Landscaped relaxation gardens</li>
+  </ul>
+
+  <div class="amenities-grid">
+    <img src="assets/club1.jpg" onerror="this.style.display='none'">
+    <img src="assets/club2.jpg" onerror="this.style.display='none'">
+    <img src="assets/club3.jpg" onerror="this.style.display='none'">
+    <img src="assets/club4.jpg" onerror="this.style.display='none'">
+  </div>
+</section>
+
+<!-- ---------------------------------------------------
+     FLAT LAYOUTS
+---------------------------------------------------- -->
+<section id="flats" class="card">
+  <h2>Flat Layouts & Designs <span class="gold">•</span></h2>
+
+  <div class="layouts-grid">
+    <div>
+      <img src="assets/2bhktype1.jpg" onerror="this.style.display='none'">
+      <div style="margin-top:8px;font-weight:700">2BHK Type 1</div>
+      <a href="assets/2bhktype1.jpg" download>Download</a>
+    </div>
+
+    <div>
+      <img src="assets/2bhktype2.jpg" onerror="this.style.display='none'">
+      <div style="margin-top:8px;font-weight:700">2BHK Type 2</div>
+      <a href="assets/2bhktype2.jpg" download>Download</a>
+    </div>
+
+    <div>
+      <img src="assets/1bhk.jpg" onerror="this.style.display='none'">
+      <div style="margin-top:8px;font-weight:700">1BHK</div>
+      <a href="assets/1bhk.jpg" download>Download</a>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------------------------------------------
+     COMPLAINT WORKFLOW
+---------------------------------------------------- -->
+<section id="complaints" class="card">
+  <h2>Complaint Management Workflow <span class="gold">•</span></h2>
+  <ol class="muted">
+    <li>Log complaint</li>
+    <li>Acknowledgement with ticket ID</li>
+    <li>Team allocation & site review</li>
+    <li>Resolution & resident confirmation</li>
+    <li>Closure & feedback</li>
+  </ol>
+</section>
+
+<!-- ---------------------------------------------------
+     DOS & DONTS
+---------------------------------------------------- -->
+<section id="dosdonts" class="card">
+  <h2>Do's & Don'ts <span class="gold">•</span></h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px">
+    <div>
+      <h4>Do's</h4>
+      <ul class="muted">
+        <li>Maintain cleanliness</li>
+        <li>Report issues promptly</li>
+        <li>Follow safety guidelines</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Don'ts</h4>
+      <ul class="muted">
+        <li>No tampering with equipment</li>
+        <li>No blocking fire exits</li>
+        <li>No excessive late-night noise</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------------------------------------------
+     CONTACT
+---------------------------------------------------- -->
+<section id="contact" class="card">
+  <h2>Contact Us <span class="gold">•</span></h2>
+  <p><strong>Email:</strong> <a href="mailto:azim.memon@dosticrown.com">azim.memon@dosticrown.com</a></p>
+  <p><strong>Address:</strong><br>Dosti Planet North, Shilphata, Thane - 400612</p>
+</section>
+
+<!-- ---------------------------------------------------
+     FOOTER
+---------------------------------------------------- -->
+<footer style="margin-top:28px;color:var(--muted);font-size:14px;text-align:center;">
+  &copy; <span id="year"></span> Dosti Crown. All Rights Reserved.
+</footer>
+
+</div>
+
+<!-- ---------------------------------------------------
+     CALLBACK MODAL
+---------------------------------------------------- -->
+<div id="callbackModal">
+  <div class="modal-box">
+    <h2 style="margin-top:0">Request a Callback</h2>
+    <p class="muted">Please fill your details. Our team will call you shortly.</p>
+
+    <label>Name</label>
+    <input id="cb_name" type="text" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;margin:6px 0 12px 0;">
+
+    <label>Contact Number</label>
+    <input id="cb_phone" type="text" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;margin:6px 0 18px 0;">
+
+    <button onclick="submitCallbackLead()" class="btn primary" style="width:100%;">Submit</button>
+    <button onclick="closeCallbackModal()" class="btn ghost" style="width:100%;margin-top:10px;">Cancel</button>
+  </div>
+</div>
+
+<!-- ADMIN CTA BUTTON -->
+<a href="#adminLeads" class="admin-cta">Admin Leads</a>
+
+<!-- ADMIN LEADS VIEW -->
+<section id="adminLeads" class="card" style="margin-top:30px">
+  <h2>Captured Leads <span class="gold">•</span></h2>
+  <div id="leadList" class="muted">No leads yet</div>
+</section>
+
+<!-- ---------------------------------------------------
+     SCRIPTS
+---------------------------------------------------- -->
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* Modal Controls */
+function openCallbackModal(){
+  document.getElementById('callbackModal').style.display='flex';
+}
+function closeCallbackModal(){
+  document.getElementById('callbackModal').style.display='none';
+}
+
+/* Save leads */
+function submitCallbackLead(){
+  const name = document.getElementById('cb_name').value.trim();
+  const phone = document.getElementById('cb_phone').value.trim();
+
+  if(!name || !phone){ alert('Please fill all fields'); return; }
+
+  const lead = { name, phone, time:new Date().toLocaleString() };
+  const leads = JSON.parse(localStorage.getItem('dosti_leads') || "[]");
+  leads.push(lead);
+  localStorage.setItem('dosti_leads', JSON.stringify(leads));
+
+  closeCallbackModal();
+  loadLeads();
+  alert("Thank you! We'll reach out shortly.");
+}
+
+/* Load leads */
+function loadLeads(){
+  const leads = JSON.parse(localStorage.getItem('dosti_leads') || "[]");
+  const box = document.getElementById('leadList');
+
+  if(leads.length === 0){
+    box.innerHTML = 'No leads yet';
+    return;
+  }
+
+  box.innerHTML = leads.map(l =>
+    `<div style="padding:10px;border-bottom:1px solid #eee;">
+       <strong>${l.name}</strong> — ${l.phone}<br>
+       <span style="font-size:12px;color:#777">${l.time}</span>
+     </div>`
+  ).join('');
+}
+loadLeads();
+</script>
+
+</body>
+</html>
