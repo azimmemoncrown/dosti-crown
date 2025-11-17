@@ -3,417 +3,275 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Dosti Crown — Create a Grand Legacy</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+<title>Dosti Crown — Community at Heart</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 <style>
-/* JOYFUL YET OFFICIAL THEME */
-:root{
-  --bg: linear-gradient(180deg,#fffdfb,#f6fbff);
-  --card:#ffffff;
-  --muted:#6b7280;
-  --text:#072033;
-  --accent-1:#0077c8;
-  --accent-2:#0fb8b3;
-  --accent-3:#f59e0b;
-  --radius:14px;
-  --container:1100px;
-}
-
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
-  background:var(--bg);
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  line-height:1.45;
-}
-
-.wrap{
-  max-width:var(--container);
-  margin:26px auto;
-  padding:18px;
-}
-
-/* HEADER */
-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  background:white;
-  padding:12px 16px;
-  border-radius:12px;
-  box-shadow:0 8px 24px rgba(0,0,0,0.05);
-}
-.brand{display:flex;align-items:center;gap:12px}
-.brand img{height:60px;border-radius:10px;object-fit:contain}
-.brand .title{font-family:'Playfair Display',serif;font-size:22px;color:var(--accent-1)}
-.brand .sub{font-size:13px;color:var(--muted)}
-
-nav{display:flex;gap:12px;flex-wrap:wrap}
-nav a{
-  text-decoration:none;
-  color:var(--muted);
-  padding:8px 10px;
-  border-radius:8px;
-  font-weight:600;
-}
-nav a.cta{
-  background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
-  color:white;
-  box-shadow:0 8px 22px rgba(0,0,0,0.15);
-}
-
-/* HERO */
-.hero{
-  margin-top:18px;
-  padding:18px;
-  border-radius:16px;
-  background:linear-gradient(180deg,rgba(0,119,200,0.05),rgba(15,184,179,0.04));
-  border:1px solid rgba(0,0,0,0.05);
-}
-.hero-grid{
-  display:grid;
-  grid-template-columns:1fr 360px;
-  gap:20px;
-  align-items:center;
-}
-
-.ribbon{
-  padding:6px 12px;
-  border-radius:999px;
-  background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
-  color:white;
-  font-size:13px;
-  font-weight:700;
-}
-
-h1.hero-title{
-  font-family:'Playfair Display',serif;
-  font-size:32px;
-  color:var(--accent-1);
-  margin-bottom:8px;
-}
-
-p.lead{
-  max-width:70ch;
-  color:#123241;
-}
-
-.hero-art{
-  border-radius:12px;
-  overflow:hidden;
-  border:4px solid white;
-  box-shadow:0 20px 40px rgba(0,0,0,0.1);
-}
-.hero-art img{
-  width:100%;height:100%;object-fit:cover;
-}
-
-/* BUTTONS */
-.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
-.btn{padding:12px 16px;border-radius:12px;font-weight:700;text-decoration:none;display:inline-block}
-.btn.primary{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white}
-.btn.ghost{border:2px solid var(--accent-3);color:var(--accent-3);background:white}
-
-/* CARDS */
-.card{
-  background:linear-gradient(180deg,#ffffff,#fff9f0);
-  padding:16px;
-  border-radius:12px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.05);
-  margin-top:18px;
-}
-h2{
-  font-family:'Playfair Display',serif;
-  font-size:26px;
-  margin-top:0;
-}
-h2 .gold{color:var(--accent-3)}
-
-/* FOUNDERS / FUTURE RESIDENTS GRID */
-.founders-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-}
-.founders-grid img{
-  width:100%;
-  aspect-ratio:5/4;
-  object-fit:cover;
-  border-radius:10px;
-  border:3px solid white;
-}
-
-/* AMENITIES & LAYOUTS */
-.amenities-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-}
-
-.layouts-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-}
-
-.amenities-grid img,
-.layouts-grid img{
-  width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:10px;border:3px solid white;
-}
-
-/* CALLBACK MODAL */
-#callbackModal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.55);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  backdrop-filter:blur(4px);
-  z-index:9999;
-}
-.modal-box{
-  background:white;
-  width:90%;
-  max-width:420px;
-  padding:22px;
-  border-radius:14px;
-  box-shadow:0 20px 60px rgba(0,0,0,0.25);
-}
-
-/* ADMIN CTA */
-.admin-cta{
-  position:fixed;
-  bottom:22px;
-  right:22px;
-  padding:10px 16px;
-  border-radius:12px;
-  background:linear-gradient(90deg,#ffcd72,#ff78b6);
-  color:#06202e;
-  font-weight:700;
-  text-decoration:none;
-  box-shadow:0 8px 20px rgba(0,0,0,0.25);
-  z-index:9999;
-}
-
-/* RESPONSIVE */
-@media(max-width:980px){
-  .hero-grid{grid-template-columns:1fr}
-  .amenities-grid{grid-template-columns:repeat(2,1fr)}
-  .layouts-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:560px){
-  header{flex-direction:column;align-items:flex-start}
-  .founders-grid,
-  .amenities-grid,
-  .layouts-grid{
-    grid-template-columns:1fr;
+  /* NEW THEME: Modern, airy, warm — full redesign of look & feel */
+  :root{
+    --bg:#f4f7fb;
+    --panel:#ffffff;
+    --muted:#55646d;
+    --primary:#1155cc;
+    --accent:#ff7aa2;
+    --gold:#d99b2a;
+    --glass:rgba(255,255,255,0.7);
+    --radius:16px;
+    --container:1150px;
   }
-}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:#0b1b2b;line-height:1.5}
+  .wrap{max-width:var(--container);margin:28px auto;padding:20px}
+
+  /* Top nav (slim) */
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));box-shadow:0 8px 30px rgba(12,24,40,0.06)}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{height:56px;width:auto;border-radius:8px;object-fit:contain}
+  .brand .title{font-family:'Playfair Display',serif;font-size:20px;margin:0;color:var(--primary)}
+  .brand .sub{font-size:13px;color:var(--muted);margin-top:2px}
+
+  nav{display:flex;gap:10px;align-items:center}
+  nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:10px;font-weight:600}
+  nav a.primary{background:linear-gradient(90deg,var(--primary),#5b2bd1);color:#fff;box-shadow:0 8px 20px rgba(17,85,204,0.12)}
+
+  /* Page header / hero */
+  .hero{display:grid;grid-template-columns:1fr 420px;gap:20px;align-items:center;margin-top:18px}
+  .hero-card{background:linear-gradient(180deg,#ffffff,#fcfdff);padding:26px;border-radius:20px;box-shadow:0 20px 50px rgba(7,18,33,0.06);border:1px solid rgba(10,20,40,0.03)}
+  .eyebrow{font-weight:700;color:var(--primary);font-size:13px}
+  h1{font-family:'Playfair Display',serif;font-size:36px;margin:8px 0;color:#0b2a66}
+  p.lead{color:var(--muted);margin-bottom:12px}
+
+  .hero-art{border-radius:16px;overflow:hidden;height:320px;box-shadow:0 24px 60px rgba(10,20,40,0.08);border:6px solid rgba(255,255,255,0.8)}
+  .hero-art img{width:100%;height:100%;object-fit:cover;display:block}
+
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+  .btn{padding:12px 16px;border-radius:12px;font-weight:700;text-decoration:none}
+  .btn.cta{background:linear-gradient(90deg,var(--primary),#5b2bd1);color:white}
+  .btn.ghost{background:transparent;border:2px solid var(--gold);color:var(--gold)}
+
+  /* Section styling */
+  section{margin-top:20px}
+  .card{background:var(--panel);padding:18px;border-radius:14px;border:1px solid rgba(12,20,30,0.03);box-shadow:0 12px 30px rgba(8,16,28,0.04)}
+  h2{font-family:'Playfair Display',serif;font-size:22px;margin:0 0 8px;color:#0b2a66}
+  .muted{color:var(--muted)}
+
+  /* Responsive galleries */
+  .founders-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .founders-grid .slot{background:linear-gradient(180deg,#ffffff,#fbfbff);border-radius:12px;padding:8px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .founders-grid img{width:100%;height:240px;object-fit:cover;border-radius:10px}
+
+  .amenities-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .layouts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+
+  .tile img{width:100%;height:220px;object-fit:cover;border-radius:10px}
+
+  /* Complaint workflow list style */
+  ol.workflow{padding-left:18px;color:var(--muted)}
+
+  /* Modal */
+  #callbackModal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.5);z-index:9999}
+  .modal{background:white;padding:20px;border-radius:12px;max-width:420px;width:92%;box-shadow:0 20px 60px rgba(2,6,23,0.35)}
+  .modal input{width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;margin-top:8px;margin-bottom:12px}
+
+  /* Admin leads CTA */
+  .admin-cta{position:fixed;right:20px;bottom:20px;padding:10px 14px;background:linear-gradient(90deg,#ffd36b,#ff7aa2);color:#08202e;border-radius:12px;text-decoration:none;font-weight:700;box-shadow:0 8px 30px rgba(0,0,0,0.18);z-index:9999}
+
+  /* Lead list */
+  #leadList>div{padding:12px;border-bottom:1px solid #f0f0f0}
+
+  /* Footer */
+  footer{margin-top:26px;text-align:center;color:var(--muted);font-size:14px;padding-bottom:20px}
+
+  /* Responsive */
+  @media(max-width:1000px){.hero{grid-template-columns:1fr}}
+  @media(max-width:760px){
+    .founders-grid{grid-template-columns:repeat(2,1fr)}
+    .amenities-grid{grid-template-columns:repeat(2,1fr)}
+    .layouts-grid{grid-template-columns:repeat(1,1fr)}
+    .hero-art{height:220px}
+  }
+  @media(max-width:420px){
+    .founders-grid{grid-template-columns:1fr}
+  }
+
 </style>
 </head>
-
 <body>
-<div class="wrap">
+  <div class="wrap">
 
-<!-- HEADER -->
-<header>
-  <div class="brand">
-    <img src="assets/logo.jpg" onerror="this.style.display='none'">
-    <div>
-      <div class="title">Dosti Crown</div>
-      <div class="sub">Create a Grand Legacy</div>
-    </div>
-  </div>
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <img src="assets/logo.jpg" alt="logo" onerror="this.style.display='none'">
+        <div>
+          <div class="title">Dosti Crown</div>
+          <div class="sub">Community at Heart</div>
+        </div>
+      </div>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#founders">Residents</a>
-    <a href="#amenities">Amenities</a>
-    <a href="#flats">Layouts</a>
-    <a href="#contact" class="cta">Contact</a>
-  </nav>
-</header>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#residents">Residents</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#flats">Layouts</a>
+        <a href="#contact" class="primary">Contact</a>
+      </nav>
+    </header>
 
-<!-- HERO -->
-<section id="home" class="hero">
-  <div class="hero-grid">
-    <div>
-      <div class="ribbon">Limited Release</div>
-      <h1 class="hero-title">Create a Grand Legacy</h1>
-      <p class="lead">Premium residential community conceived by future residents and brought to life with Dosti Developers.</p>
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-card">
+        <div class="eyebrow">Resident Initiative</div>
+        <h1>Welcome to Dosti Crown — Where neighbours become family</h1>
+        <p class="lead">A community created by future residents who dreamed of living together under one roof. Dosti Developers helped make the vision real — this site is for coordination, information and community building.</p>
 
-      <div class="cta-row">
-        <a href="assets/Dosti_Crown_ebrochure.pdf" class="btn primary" target="_blank">Download Brochure</a>
-        <a href="#" class="btn ghost" onclick="openCallbackModal()">Request Callback</a>
+        <div class="cta-row">
+          <a href="assets/Dosti_Crown_ebrochure.pdf" class="btn cta" target="_blank">Download Brochure</a>
+          <a href="#" class="btn ghost" onclick="openCallbackModal()">Request Callback</a>
+        </div>
+
+        <div style="margin-top:14px;color:var(--muted);font-size:13px">Project address: Dosti Planet North, near Shilphata, Thane - 400612</div>
+      </div>
+
+      <div class="hero-art">
+        <img src="assets/building.jpg" alt="building" onerror="this.style.display='none'">
       </div>
     </div>
 
-    <div class="hero-art">
-      <img src="assets/building.jpg">
+    <!-- Residents -->
+    <section id="residents" class="card">
+      <h2>Future Residents</h2>
+      <p class="muted">A close-knit group of friends and families who shared the dream of neighbourhood living. Their coordination and effort led to Dosti Crown becoming a reality.</p>
+
+      <div class="founders-grid" style="margin-top:12px">
+        <div class="slot"><img src="assets/image1.jpg" alt="resident 1"></div>
+        <div class="slot"><img src="assets/image2.jpg" alt="resident 2"></div>
+        <div class="slot"><img src="assets/image3.jpg" alt="resident 3"></div>
+        <div class="slot"><img src="assets/image4.jpg" alt="resident 4"></div>
+        <div class="slot"><img src="assets/image5.jpg" alt="resident 5"></div>
+        <div class="slot"><img src="assets/image6.jpg" alt="resident 6"></div>
+      </div>
+    </section>
+
+    <!-- Amenities -->
+    <section id="amenities" class="card">
+      <h2>Amenities & Gallery</h2>
+      <p class="muted">Our planned common spaces and amenities.</p>
+      <div class="amenities-grid" style="margin-top:12px">
+        <div class="tile"><img src="assets/club1.jpg" alt="club1" onerror="this.style.display='none'"></div>
+        <div class="tile"><img src="assets/club2.jpg" alt="club2" onerror="this.style.display='none'"></div>
+        <div class="tile"><img src="assets/club3.jpg" alt="club3" onerror="this.style.display='none'"></div>
+        <div class="tile"><img src="assets/club4.jpg" alt="club4" onerror="this.style.display='none'"></div>
+      </div>
+    </section>
+
+    <!-- Layouts -->
+    <section id="flats" class="card">
+      <h2>Flat Layouts & 3D Designs</h2>
+      <div class="layouts-grid" style="margin-top:12px">
+        <div class="tile">
+          <img src="assets/2bhktype1.jpg" alt="2bhk1" onerror="this.style.display='none'">
+          <div style="margin-top:8px;font-weight:700">2BHK Type 1 — <a href="assets/2bhktype1.jpg" download style="color:var(--primary)">Download</a></div>
+        </div>
+        <div class="tile">
+          <img src="assets/2bhktype2.jpg" alt="2bhk2" onerror="this.style.display='none'">
+          <div style="margin-top:8px;font-weight:700">2BHK Type 2 — <a href="assets/2bhktype2.jpg" download style="color:var(--primary)">Download</a></div>
+        </div>
+        <div class="tile">
+          <img src="assets/1bhk.jpg" alt="1bhk" onerror="this.style.display='none'">
+          <div style="margin-top:8px;font-weight:700">1BHK — <a href="assets/1bhk.jpg" download style="color:var(--primary)">Download</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Complaints -->
+    <section id="complaints" class="card">
+      <h2>Complaint Management Workflow</h2>
+      <ol class="workflow">
+        <li>Log complaint — form, email or phone</li>
+        <li>Acknowledge with ticket ID</li>
+        <li>Assign category & team</li>
+        <li>Inspect & resolve</li>
+        <li>Confirm with resident</li>
+        <li>Close & collect feedback</li>
+      </ol>
+    </section>
+
+    <!-- Dos & Don'ts -->
+    <section id="dosdonts" class="card">
+      <h2>Do's & Don'ts</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div>
+          <h4>Do's</h4>
+          <ul class="muted"><li>Report issues promptly</li><li>Keep common areas clean</li><li>Be considerate of neighbours</li></ul>
+        </div>
+        <div>
+          <h4>Don'ts</h4>
+          <ul class="muted"><li>Avoid blocking fire exits</li><li>Don't tamper with equipment</li><li>Limit late night noise</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <p class="muted">Email: <a href="mailto:azim.memon@dosticrown.com">azim.memon@dosticrown.com</a></p>
+      <p class="muted">Project Address: Dosti Planet North, near Shilphata, Thane - 400612</p>
+    </section>
+
+    <!-- Admin Leads (hidden by default until CTA) -->
+    <section id="adminLeads" class="card" style="margin-top:18px">
+      <h2>Captured Leads</h2>
+      <div id="leadList" class="muted">No leads yet</div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Dosti Crown — <a href="disclaimer.html">Disclaimer</a>
+    </footer>
+
+  </div>
+
+  <!-- Callback Modal -->
+  <div id="callbackModal" role="dialog" aria-modal="true">
+    <div class="modal">
+      <h3>Request a Callback</h3>
+      <p class="muted">Leave your name and phone — we'll call back shortly.</p>
+      <input id="cb_name" type="text" placeholder="Your name">
+      <input id="cb_phone" type="text" placeholder="Contact number">
+      <button class="btn cta" style="width:100%;margin-top:8px" onclick="submitCallbackLead()">Submit</button>
+      <button class="btn ghost" style="width:100%;margin-top:8px" onclick="closeCallbackModal()">Cancel</button>
     </div>
   </div>
-</section>
 
-<!-- FUTURE RESIDENTS -->
-<section id="founders" class="card">
-  <h2>Future Residents <span class="gold">•</span></h2>
-  <p class="muted">
-    A group of close friends dreamed of living together in one community — a place that felt warm, modern, and connected.  
-    That dream came true with the creation of Dosti Crown, where they will soon reside as proud future homeowners.
-  </p>
-
-  <div class="founders-grid">
-    <img src="assets/image1.jpg">
-    <img src="assets/image2.jpg">
-    <img src="assets/image3.jpg">
-    <img src="assets/image4.jpg">
-    <img src="assets/image5.jpg">
-    <img src="assets/image6.jpg">
-  </div>
-</section>
-
-<!-- AMENITIES -->
-<section id="amenities" class="card">
-  <h2>Amenities & Highlights <span class="gold">•</span></h2>
-  <div class="amenities-grid">
-    <img src="assets/club1.jpg">
-    <img src="assets/club2.jpg">
-    <img src="assets/club3.jpg">
-    <img src="assets/club4.jpg">
-  </div>
-</section>
-
-<!-- LAYOUTS -->
-<section id="flats" class="card">
-  <h2>Flat Layouts & Designs <span class="gold">•</span></h2>
-  <div class="layouts-grid">
-    <div><img src="assets/2bhktype1.jpg"><div style="font-weight:700;margin-top:8px">2BHK Type 1</div></div>
-    <div><img src="assets/2bhktype2.jpg"><div style="font-weight:700;margin-top:8px">2BHK Type 2</div></div>
-    <div><img src="assets/1bhk.jpg"><div style="font-weight:700;margin-top:8px">1BHK</div></div>
-  </div>
-</section>
-
-<!-- COMPLAINTS -->
-<section id="complaints" class="card">
-  <h2>Complaint Workflow <span class="gold">•</span></h2>
-  <ol class="muted">
-    <li>Log complaint</li>
-    <li>Acknowledgement</li>
-    <li>Team allocation</li>
-    <li>Resolution</li>
-    <li>Confirmation</li>
-    <li>Feedback</li>
-  </ol>
-</section>
-
-<!-- DOs & DON'Ts -->
-<section id="dosdonts" class="card">
-  <h2>Do's & Don'ts <span class="gold">•</span></h2>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-    <div>
-      <h4>Do's</h4>
-      <ul class="muted">
-        <li>Maintain cleanliness</li>
-        <li>Report issues promptly</li>
-        <li>Follow guidelines</li>
-      </ul>
-    </div>
-
-    <div>
-      <h4>Don'ts</h4>
-      <ul class="muted">
-        <li>No tampering</li>
-        <li>No blocking exits</li>
-        <li>No excessive noise</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="card">
-  <h2>Contact Us <span class="gold">•</span></h2>
-  <p><strong>Email:</strong> <a href="mailto:azim.memon@dosticrown.com">azim.memon@dosticrown.com</a></p>
-  <p><strong>Address:</strong> Dosti Planet North, Shilphata, Thane - 400612</p>
-</section>
-
-<!-- DISCLAIMER LINK ADDED -->
-<footer style="text-align:center;margin-top:30px;color:var(--muted);font-size:14px;">
-  © <span id="year"></span> Dosti Crown  
-  <br><br>
-  <a href="disclaimer.html" style="color:var(--accent-1);font-weight:700;text-decoration:none;">Disclaimer</a>
-</footer>
-
-</div>
-
-<!-- CALLBACK MODAL -->
-<div id="callbackModal">
-  <div class="modal-box">
-    <h2>Request a Callback</h2>
-    <label>Name</label>
-    <input id="cb_name" type="text" style="width:100%;padding:10px">
-
-    <label>Contact Number</label>
-    <input id="cb_phone" type="text" style="width:100%;padding:10px">
-
-    <button onclick="submitCallbackLead()" class="btn primary" style="width:100%;margin-top:12px;">Submit</button>
-    <button onclick="closeCallbackModal()" class="btn ghost" style="width:100%;margin-top:10px;">Cancel</button>
-  </div>
-</div>
-
-<!-- ADMIN CTA -->
-<a href="#adminLeads" class="admin-cta">Admin Leads</a>
-
-<!-- ADMIN LEADS -->
-<section id="adminLeads" class="card" style="margin-top:30px">
-  <h2>Captured Leads <span class="gold">•</span></h2>
-  <div id="leadList" class="muted">No leads yet</div>
-</section>
+  <a class="admin-cta" href="#adminLeads">Admin Leads</a>
 
 <script>
-document.getElementById('year').textContent=new Date().getFullYear();
+  // preserve existing functions & behavior
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-/* Modal */
-function openCallbackModal(){document.getElementById('callbackModal').style.display='flex'}
-function closeCallbackModal(){document.getElementById('callbackModal').style.display='none'}
+  function openCallbackModal(){ document.getElementById('callbackModal').style.display='flex' }
+  function closeCallbackModal(){ document.getElementById('callbackModal').style.display='none' }
 
-/* Lead Storage */
-function submitCallbackLead(){
-  const name=document.getElementById('cb_name').value.trim();
-  const phone=document.getElementById('cb_phone').value.trim();
-  if(!name||!phone){alert("Fill all fields");return;}
+  function submitCallbackLead(){
+    const name = document.getElementById('cb_name').value.trim();
+    const phone = document.getElementById('cb_phone').value.trim();
+    if(!name || !phone){ alert('Please fill both fields'); return; }
 
-  const leads=JSON.parse(localStorage.getItem('dosti_leads')||"[]");
-  leads.push({name,phone,time:new Date().toLocaleString()});
-  localStorage.setItem('dosti_leads',JSON.stringify(leads));
+    const lead = { name, phone, time: new Date().toLocaleString() };
+    const leads = JSON.parse(localStorage.getItem('dosti_leads') || '[]');
+    leads.push(lead);
+    localStorage.setItem('dosti_leads', JSON.stringify(leads));
 
-  closeCallbackModal();
+    document.getElementById('cb_name').value=''; document.getElementById('cb_phone').value='';
+    closeCallbackModal(); loadLeads(); alert('Thank you — we will call you shortly.');
+  }
+
+  function loadLeads(){
+    const leads = JSON.parse(localStorage.getItem('dosti_leads') || '[]');
+    const el = document.getElementById('leadList');
+    if(!leads.length){ el.innerHTML = 'No leads yet'; return; }
+    el.innerHTML = leads.map(l => `<div><strong>${l.name}</strong> — ${l.phone}<br><small style="color:#666">${l.time}</small></div>`).join('');
+  }
   loadLeads();
-  alert("Thank you! We'll contact you soon.");
-}
-
-/* Load Leads */
-function loadLeads(){
-  const leads=JSON.parse(localStorage.getItem('dosti_leads')||"[]");
-  const box=document.getElementById('leadList');
-
-  if(leads.length===0){box.innerHTML='No leads yet';return;}
-
-  box.innerHTML=leads.map(l=>`
-    <div style="padding:10px;border-bottom:1px solid #eee">
-      <strong>${l.name}</strong> — ${l.phone}<br>
-      <span style="font-size:12px;color:#777">${l.time}</span>
-    </div>
-  `).join('');
-}
-loadLeads();
 </script>
-
 </body>
 </html>
