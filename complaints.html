@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Complaint Management | Dosti Crown</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui;background:#fffaf6;color:#0f1724}
+.wrap{max-width:1100px;margin:20px auto;padding:18px}
+.header{display:flex;justify-content:space-between;align-items:center}
+.card{background:#fff;padding:16px;border-radius:12px;border:1px solid rgba(0,0,0,0.04)}
+.table{width:100%;border-collapse:collapse;margin-top:12px}
+.table th,.table td{border:1px solid #eee;padding:8px;text-align:left}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:700px){.form-grid{grid-template-columns:1fr}}
+.small{color:#6b7280}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="header">
+    <div style="display:flex;gap:12px;align-items:center"><img src="assets/logo.jpg" style="height:56px" onerror="this.style.display='none'"><strong>Complaint Management</strong></div>
+    <nav><a href="index.html">Home</a> | <a href="about.html">Vision</a> | <a href="amenities.html">Amenities</a> | <a href="contact.html">Contact</a></nav>
+  </header>
+
+  <main style="margin-top:18px">
+    <section class="card">
+      <h2>Purpose & Scope</h2>
+      <p class="small">This defines how resident complaints are logged, tracked, escalated and closed.</p>
+
+      <h3 style="margin-top:12px">Ticket fields</h3>
+      <table class="table"><thead><tr><th>Field</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>Ticket ID</td><td>Auto-assigned (e.g. DC12345)</td></tr>
+        <tr><td>Raised by</td><td>Resident name & contact</td></tr>
+        <tr><td>Unit / Tower</td><td>Unit number</td></tr>
+        <tr><td>Category</td><td>Maintenance / Billing / Security / Amenities / Other</td></tr>
+        <tr><td>Status</td><td>Open / In Progress / Resolved / Closed</td></tr>
+      </tbody></table>
+    </section>
+
+    <section class="card" style="margin-top:12px">
+      <h3>Quick SLA & Escalation</h3>
+      <ul class="small">
+        <li><strong>Acknowledge:</strong> within 24 hours (email/SMS)</li>
+        <li><strong>Priority - Critical:</strong> 1-4 hours (security / safety)</li>
+        <li><strong>Escalation:</strong> Operations Manager → Project Head → Developers' rep</li>
+      </ul>
+
+      <h3 style="margin-top:12px">Submit a complaint (demo)</h3>
+      <form onsubmit="demo(e)" style="margin-top:8px">
+        <div class="form-grid">
+          <input name="name" placeholder="Your name" required />
+          <input name="unit" placeholder="Unit / Tower" />
+          <input name="phone" placeholder="Phone" required />
+          <select name="category"><option>Maintenance</option><option>Billing</option><option>Security</option><option>Amenities</option><option>Other</option></select>
+        </div>
+        <textarea name="desc" placeholder="Describe the issue" style="margin-top:8px"></textarea>
+        <div style="margin-top:8px;display:flex;gap:10px;align-items:center">
+          <button style="padding:10px 14px;border-radius:8px;background:#0b74de;color:#fff;border:none" type="submit">Submit</button>
+          <div id="demoNote" class="small"></div>
+        </div>
+      </form>
+    </section>
+
+    <section class="card" style="margin-top:12px">
+      <h3>Templates & Reporting</h3>
+      <p class="small">Use the acknowledgement and resolution templates in your email system. Track KPIs weekly: tickets opened/closed, avg resolution time, SLA compliance % and satisfaction score.</p>
+    </section>
+  </main>
+
+  <footer style="margin-top:18px;color:#6b7280;border-top:1px solid rgba(0,0,0,0.04);padding-top:12px">&copy; <span id="y4"></span> Dosti Crown</footer>
+</div>
+
+<script>document.getElementById('y4').textContent=new Date().getFullYear();
+function demo(e){ e.preventDefault(); const ticket='DC'+Math.floor(Math.random()*90000+10000); document.getElementById('demoNote').textContent='Demo ticket '+ticket+' created (client-only).'; e.target.reset(); setTimeout(()=>document.getElementById('demoNote').textContent='',7000);} </script>
+</body>
+</html>
