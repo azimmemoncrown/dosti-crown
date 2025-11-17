@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* JOYFUL YET OFFICIAL (YOUR ORIGINAL THEME) */
+/* JOYFUL YET OFFICIAL THEME */
 :root{
   --bg: linear-gradient(180deg,#fffdfb,#f6fbff);
   --card:#ffffff;
@@ -119,13 +119,6 @@ p.lead{
 .btn.primary{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white}
 .btn.ghost{border:2px solid var(--accent-3);color:var(--accent-3);background:white}
 
-/* DIVIDER */
-.gold-divider{
-  height:6px;border-radius:8px;
-  background:linear-gradient(90deg,var(--accent-3),#ffdda3);
-  margin:18px 0;
-}
-
 /* CARDS */
 .card{
   background:linear-gradient(180deg,#ffffff,#fff9f0);
@@ -134,50 +127,78 @@ p.lead{
   box-shadow:0 10px 30px rgba(0,0,0,0.05);
   margin-top:18px;
 }
-h2{font-family:'Playfair Display',serif;font-size:26px;margin-top:0}
+h2{
+  font-family:'Playfair Display',serif;
+  font-size:26px;
+  margin-top:0;
+}
 h2 .gold{color:var(--accent-3)}
 
-/* 2-COLUMN FOUNDERS GRID (ORIGINAL) */
+/* FOUNDERS / FUTURE RESIDENTS GRID */
 .founders-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:12px;
 }
 .founders-grid img{
-  width:100%;aspect-ratio:5/4;object-fit:cover;
-  border-radius:10px;border:3px solid white;
+  width:100%;
+  aspect-ratio:5/4;
+  object-fit:cover;
+  border-radius:10px;
+  border:3px solid white;
 }
 
-/* AMENITIES + LAYOUTS */
+/* AMENITIES & LAYOUTS */
 .amenities-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
 }
+
 .layouts-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
 }
+
 .amenities-grid img,
 .layouts-grid img{
   width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:10px;border:3px solid white;
 }
 
-/* MODAL */
+/* CALLBACK MODAL */
 #callbackModal{
-  position:fixed;inset:0;background:rgba(0,0,0,0.55);
-  display:none;justify-content:center;align-items:center;
-  backdrop-filter:blur(4px);z-index:9999;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  backdrop-filter:blur(4px);
+  z-index:9999;
 }
 .modal-box{
-  background:white;width:90%;max-width:420px;
-  padding:22px;border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,0.25);
+  background:white;
+  width:90%;
+  max-width:420px;
+  padding:22px;
+  border-radius:14px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.25);
 }
 
 /* ADMIN CTA */
 .admin-cta{
-  position:fixed;bottom:22px;right:22px;
-  padding:10px 16px;border-radius:12px;
+  position:fixed;
+  bottom:22px;
+  right:22px;
+  padding:10px 16px;
+  border-radius:12px;
   background:linear-gradient(90deg,#ffcd72,#ff78b6);
-  color:#06202e;font-weight:700;text-decoration:none;
-  box-shadow:0 8px 20px rgba(0,0,0,0.25);z-index:9999;
+  color:#06202e;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);
+  z-index:9999;
 }
 
 /* RESPONSIVE */
@@ -212,7 +233,7 @@ h2 .gold{color:var(--accent-3)}
 
   <nav>
     <a href="#home">Home</a>
-    <a href="#founders">Founders</a>
+    <a href="#founders">Residents</a>
     <a href="#amenities">Amenities</a>
     <a href="#flats">Layouts</a>
     <a href="#contact" class="cta">Contact</a>
@@ -225,7 +246,7 @@ h2 .gold{color:var(--accent-3)}
     <div>
       <div class="ribbon">Limited Release</div>
       <h1 class="hero-title">Create a Grand Legacy</h1>
-      <p class="lead">Premium residential community conceived by friends and delivered with Dosti Developers.</p>
+      <p class="lead">Premium residential community conceived by future residents and brought to life with Dosti Developers.</p>
 
       <div class="cta-row">
         <a href="assets/Dosti_Crown_ebrochure.pdf" class="btn primary" target="_blank">Download Brochure</a>
@@ -234,15 +255,18 @@ h2 .gold{color:var(--accent-3)}
     </div>
 
     <div class="hero-art">
-      <img src="assets/building.jpg" onerror="this.style.display='none'">
+      <img src="assets/building.jpg">
     </div>
   </div>
 </section>
 
-<!-- FOUNDERS (2-COLUMN • 6 FOUNDERS) -->
+<!-- FUTURE RESIDENTS -->
 <section id="founders" class="card">
-  <h2>Founders' Vision <span class="gold">•</span></h2>
-  <p class="muted">Created by friends who envisioned a warm, modern and lasting community.</p>
+  <h2>Future Residents <span class="gold">•</span></h2>
+  <p class="muted">
+    A group of close friends dreamed of living together in one community — a place that felt warm, modern, and connected.  
+    That dream came true with the creation of Dosti Crown, where they will soon reside as proud future homeowners.
+  </p>
 
   <div class="founders-grid">
     <img src="assets/image1.jpg">
@@ -277,7 +301,7 @@ h2 .gold{color:var(--accent-3)}
 
 <!-- COMPLAINTS -->
 <section id="complaints" class="card">
-  <h2>Complaint Management Workflow <span class="gold">•</span></h2>
+  <h2>Complaint Workflow <span class="gold">•</span></h2>
   <ol class="muted">
     <li>Log complaint</li>
     <li>Acknowledgement</li>
@@ -288,7 +312,7 @@ h2 .gold{color:var(--accent-3)}
   </ol>
 </section>
 
-<!-- DOS & DONTS -->
+<!-- DOs & DON'Ts -->
 <section id="dosdonts" class="card">
   <h2>Do's & Don'ts <span class="gold">•</span></h2>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
@@ -315,12 +339,15 @@ h2 .gold{color:var(--accent-3)}
 <!-- CONTACT -->
 <section id="contact" class="card">
   <h2>Contact Us <span class="gold">•</span></h2>
-  <p><strong>Email:</strong> azim.memon@dosticrown.com</p>
+  <p><strong>Email:</strong> <a href="mailto:azim.memon@dosticrown.com">azim.memon@dosticrown.com</a></p>
   <p><strong>Address:</strong> Dosti Planet North, Shilphata, Thane - 400612</p>
 </section>
 
-<footer style="text-align:center;margin-top:30px;color:var(--muted)">
-  © <span id="year"></span> Dosti Crown
+<!-- DISCLAIMER LINK ADDED -->
+<footer style="text-align:center;margin-top:30px;color:var(--muted);font-size:14px;">
+  © <span id="year"></span> Dosti Crown  
+  <br><br>
+  <a href="disclaimer.html" style="color:var(--accent-1);font-weight:700;text-decoration:none;">Disclaimer</a>
 </footer>
 
 </div>
