@@ -1,215 +1,151 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dosti Crown — Supports Salman Mujawar</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-/* Page-wide backdrop */
-body{
-  background-image:url('assets/building.jpg');
-  background-size:cover;
-  background-position:center;
-  background-attachment:fixed;
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Dosti Crown — Home</title>
+<meta name="description" content="Dosti Crown — Create a Grand Legacy. Dosti Planet North, near Shilphata, Thane 400612" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fffaf6;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --text:#0f1724;
+  --primary:#0b74de;
+  --accent:#f5a623;
+  --radius:14px;
+  --container:1200px;
 }
-
-.ad-image{margin-top:18px;border-radius:10px;overflow:hidden;border:1px solid rgba(0,0,0,0.04)}
-.ad-image img{width:100%;display:block;object-fit:cover}
-
-
-/* Image Slider – Fade Transition */
-.slider{
-  position:relative;
-  overflow:hidden;
-  border-radius:12px;
-  margin-bottom:20px;
-  border:1px solid #eee;
-  width:100%;
-  height:480px;
-}
-.slider img{
-  position:absolute;
-  top:0; left:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  opacity:0;
-  animation: fadeSlider 25s infinite;
-}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui, -apple-system, 'Segoe UI', Roboto, Arial; color:var(--text); background:var(--bg); -webkit-font-smoothing:antialiased;}
+.container{max-width:var(--container);margin:24px auto;padding:18px}
+.header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{height:60px;border-radius:8px;box-shadow:0 6px 18px rgba(16,24,40,.06)}
+.brand h1{margin:0;font-family:'Playfair Display',serif;font-size:20px}
+.nav{display:flex;gap:10px}
+.nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:9px;font-weight:600}
+.nav a.cta{background:var(--primary);color:#fff}
+.hero{margin-top:16px;display:grid;grid-template-columns:1fr 380px;gap:18px;align-items:start}
+.hero-left{min-width:0}
+.hero-title{font-family:'Playfair Display',serif;font-size:34px;margin:0 0 10px}
+.lead{color:#334155;font-size:16px;margin:0 0 12px}
+.cta-row{display:flex;gap:10px;flex-wrap:wrap}
+.btn{padding:10px 14px;border-radius:10px;font-weight:700;text-decoration:none}
+.btn.primary{background:var(--primary);color:#fff}
+.btn.ghost{background:transparent;border:2px solid var(--accent);color:var(--accent)}
+/* Slider (fade) */
+.slider{position:relative;border-radius:12px;overflow:hidden;border:1px solid rgba(0,0,0,0.04);height:420px}
+.slider img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:fade 30s infinite}
 .slider img:nth-child(1){animation-delay:0s}
-.slider img:nth-child(2){animation-delay:5s}
-.slider img:nth-child(3){animation-delay:10s}
-.slider img:nth-child(4){animation-delay:15s}
-.slider img:nth-child(5){animation-delay:20s}
-
-.slider img{
-  position:absolute;
-  top:0; left:0;
-  width:100%; height:100%; object-fit:cover;
-  opacity:0;
-  animation: fadeSlider 25s infinite;
-}
-.slider img:nth-child(1){animation-delay:0s}
-.slider img:nth-child(2){animation-delay:5s}
-.slider img:nth-child(3){animation-delay:10s}
-.slider img:nth-child(4){animation-delay:15s}
-.slider img:nth-child(5){animation-delay:20s}
-
-@keyframes fadeSlider{
+.slider img:nth-child(2){animation-delay:6s}
+.slider img:nth-child(3){animation-delay:12s}
+.slider img:nth-child(4){animation-delay:18s}
+.slider img:nth-child(5){animation-delay:24s}
+@keyframes fade{
   0%{opacity:0}
-  4%{opacity:1}        /* fade in */
-  20%{opacity:1}       /* hold */
-  24%{opacity:0}       /* fade out */
-  35%{opacity:0}       /* 1-second gap before next image */
-  100%{opacity:0}
-}
-  5%{opacity:1}
+  4%{opacity:1}
   20%{opacity:1}
-  25%{opacity:0}
+  24%{opacity:0}
+  28%{opacity:0}
   100%{opacity:0}
 }
-  20%{transform:translateX(0%)}
-  25%{transform:translateX(-100%)}
-  45%{transform:translateX(-100%)}
-  50%{transform:translateX(-200%)}
-  70%{transform:translateX(-200%)}
-  75%{transform:translateX(-300%)}
-  95%{transform:translateX(-300%)}
-  100%{transform:translateX(-400%)}
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.card{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 10px 30px rgba(2,6,23,0.04)}
+.card h3{margin:0 0 8px}
+.aside-card{background:linear-gradient(180deg,#fff,#fffaf6);padding:16px;border-radius:12px;border:1px solid rgba(0,0,0,0.04)}
+.footer{margin-top:20px;padding-top:16px;border-top:1px solid rgba(0,0,0,0.05);color:var(--muted);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap}
+
+/* responsive */
+@media(max-width:980px){
+  .hero{grid-template-columns:1fr}
+  .cards{grid-template-columns:repeat(2,1fr)}
 }
-    :root{
-      --bg:#faf9f7;
-      --card:#ffffff;
-      --muted:#6b5f57;
-      --accent:#a8916b;
-      --text:#2b2623;
-      --radius:12px;
-      --max-width:1100px;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui;background:var(--bg);color:var(--text);line-height:1.5}
-    .wrap{max-width:var(--max-width);margin:32px auto;padding:20px}
-    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
-    .title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700}
-    .subtitle{color:var(--muted);font-size:14px}
-    nav a{text-decoration:none;margin-left:12px;color:var(--muted);font-weight:600}
-    .hero h1{font-family:'Playfair Display',serif;font-size:40px;margin-bottom:10px}
-    .btn{display:inline-block;padding:10px 16px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;margin-right:10px}
-    .card{background:var(--card);padding:16px;border-radius:var(--radius);margin-top:20px;border:1px solid #eae8e4}
-    h2{font-family:'Playfair Display',serif;font-size:24px;margin-top:40px;margin-bottom:12px}
-    ul{padding-left:20px}
-    footer{margin-top:40px;padding-top:20px;border-top:1px solid #ddd;color:var(--muted);font-size:14px}
-  </style>
+@media(max-width:560px){
+  .cards{grid-template-columns:1fr}
+  .slider{height:260px}
+  .brand img{height:46px}
+}
+</style>
 </head>
 <body>
-<div class="wrap">
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <img src="assets/logo.jpg" alt="logo" onerror="this.style.display='none'">
+        <div>
+          <h1>Dosti Crown</h1>
+          <div style="font-size:13px;color:var(--muted)">Create a Grand Legacy — Dosti Planet North</div>
+        </div>
+      </div>
 
-<header>
-  <div>
-    <div class="title">Dosti Crown</div>
-    <div class="subtitle">Create a Grand Legacy</div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">Vision</a>
+        <a href="amenities.html">Amenities</a>
+        <a href="complaints.html">Complaints</a>
+        <a href="contact.html" class="cta">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-left">
+          <h2 class="hero-title">Create a Grand Legacy</h2>
+          <p class="lead">Dosti Crown is a premium residential community conceived by a group of friends and brought to life in partnership with Dosti Developers. Thoughtful layouts, lasting finishes and an engaged community — near Shilphata, Thane 400612.</p>
+
+          <div class="cta-row">
+            <a class="btn primary" href="assets/Dosti_Crown_ebrochure.pdf" target="_blank">Download Brochure</a>
+            <a class="btn ghost" href="contact.html">Request Callback</a>
+          </div>
+
+          <div class="cards" style="margin-top:18px">
+            <div class="card"><h3>Prime Location</h3><div style="color:var(--muted)">Well connected within Thane with quick city access.</div></div>
+            <div class="card"><h3>Thoughtful Design</h3><div style="color:var(--muted)">Optimized living spaces for comfort & efficiency.</div></div>
+            <div class="card"><h3>Lifestyle Amenities</h3><div style="color:var(--muted)">Clubhouse, gym, landscaped gardens and more.</div></div>
+          </div>
+        </div>
+
+        <aside style="min-width:320px">
+          <div class="aside-card">
+            <strong style="color:var(--primary)">Enquiry</strong>
+            <h3 style="margin:8px 0 4px">Talk to our team</h3>
+            <div style="color:var(--muted)">Email: <a href="mailto:azim.memon@dosticrown.com">azim.memon@dosticrown.com</a></div>
+            <div style="margin-top:8px;font-weight:600">Dosti Planet North, near Shilphata, Thane - 400612</div>
+            <div style="margin-top:12px"><a class="btn primary" href="contact.html">Request Callback</a></div>
+          </div>
+
+          <div class="aside-card" style="margin-top:12px">
+            <strong>Quick Links</strong>
+            <div style="margin-top:8px;display:flex;flex-direction:column;gap:8px">
+              <a href="about.html">Founders' Vision</a>
+              <a href="amenities.html">Amenities & Gallery</a>
+              <a href="complaints.html">Complaint Management</a>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- big slider -->
+      <section style="margin-top:18px">
+        <div class="slider" aria-hidden="false">
+          <img src="assets/image1.jpg" alt="Banner 1" onerror="this.style.display='none'">
+          <img src="assets/image2.jpg" alt="Banner 2" onerror="this.style.display='none'">
+          <img src="assets/image3.jpg" alt="Banner 3" onerror="this.style.display='none'">
+          <img src="assets/image4.jpg" alt="Banner 4" onerror="this.style.display='none'">
+          <img src="assets/image5.jpg" alt="Banner 5" onerror="this.style.display='none'">
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>&copy; <span id="y"></span> Dosti Crown</div>
+      <div style="color:var(--muted)">Project address: Dosti Planet North, near Shilphata, Thane - 400612 • <a href="contact.html">Contact</a></div>
+    </footer>
   </div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#features">Features</a>
-    <a href="#amenities">Amenities</a>
-    <a href="#complaints">Complaints</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
 
-<section id="home" class="hero">
-  <div class="slider">
-  <img src="assets/image1.jpg" alt="img1" onerror="this.style.display='none'">
-  <img src="assets/image2.jpg" alt="img2" onerror="this.style.display='none'">
-  <img src="assets/image3.jpg" alt="img3" onerror="this.style.display='none'">
-  <img src="assets/image4.jpg" alt="img4" onerror="this.style.display='none'">
-  <img src="assets/image5.jpg" alt="img5" onerror="this.style.display='none'">
-</div>
-</div>
-  <h1>Create a Grand Legacy</h1>
-  <p>
-    Dosti Crown at Dosti Planet North — premium residences designed for modern living,
-    thoughtfully built near Shilphata, Thane 400612.
-  </p>
-  <a class="btn" href="assets/Dosti_Crown_ebrochure.pdf" target="_blank">Download Brochure</a>
-</section>
-
-<section id="founders" class="card">
-  <h2>Founders' Vision</h2>
-  <p>
-    What began as a heartfelt idea among friends — to create a space that embodies comfort, elegance
-    and community — has now become a reality. With the dedicated execution and craftsmanship of
-    Dosti Developers, this collaborative dream stands proudly as Dosti Crown, a place created with
-    passion and built to inspire.
-  </p>
-</section>
-
-<section id="features" class="card">
-  <h2>Project Features</h2>
-  <ul>
-    <li>Prime location within Dosti Planet North</li>
-    <li>Elegant layouts designed for practical living</li>
-    <li>Modern lifestyle amenities</li>
-  </ul>
-</section>
-
-<section id="amenities" class="card">
-  <h2>Amenities & Highlights</h2>
-  <ul>
-    <li>Clubhouse & indoor recreation</li>
-    <li>Gym, jogging track & outdoor activity zones</li>
-    <li>Landscaped gardens & relaxation spaces</li>
-  </ul>
-</section>
-
-<section class="ad-image" aria-label="Advertisement image">
-  <img src="assets/add1.jpg" alt="Advertisement" onerror="this.style.display='none'" />
-</section>
-
-<section id="complaints" class="card">
-  <h2>Complaint Management Workflow</h2>
-  <ol>
-    <li>Log complaint — via form, email or phone</li>
-    <li>Acknowledgement with ticket ID</li>
-    <li>Category assignment & team allocation</li>
-    <li>Inspection and investigation</li>
-    <li>Resolution & resident confirmation</li>
-    <li>Closure & feedback survey</li>
-  </ol>
-</section>
-
-<section id="dosdonts" class="card">
-  <h2>Do's & Don'ts</h2>
-  <h3>Do's</h3>
-  <ul>
-    <li>Report issues promptly</li>
-    <li>Maintain cleanliness in common areas</li>
-    <li>Respect community guidelines</li>
-  </ul>
-  <h3>Don'ts</h3>
-  <ul>
-    <li>Do not block fire exits or corridors</li>
-    <li>Do not tamper with facility equipment</li>
-    <li>Do not create excessive noise late at night</li>
-  </ul>
-</section>
-
-<section id="contact" class="card">
-  <h2>Contact Us</h2>
-  <p><strong>Email:</strong> <a href="mailto:azim.memon@dosticrown.com">azim.memon@dosticrown.com</a></p>
-  <p><strong>Project Address:</strong><br>Dosti Planet North, near Shilphata, Thane - 400612</p>
-</section>
-
-<footer>
-  &copy; <span id="year"></span> Dosti Crown. All rights reserved.
-</footer>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-
-</div>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
