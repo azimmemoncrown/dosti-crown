@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Contact | Dosti Crown</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui;background:#fffaf6;color:#0f1724}
+.wrap{max-width:1000px;margin:20px auto;padding:18px}
+.header{display:flex;justify-content:space-between;align-items:center}
+.card{background:#fff;padding:16px;border-radius:12px;border:1px solid rgba(0,0,0,0.04)}
+input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #eee;margin-top:8px;font:inherit}
+button{padding:10px 14px;border-radius:8px;background:#0b74de;color:#fff;border:none;margin-top:8px}
+.small{color:#6b7280}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="header">
+    <div style="display:flex;gap:12px;align-items:center"><img src="assets/logo.jpg" style="height:56px" onerror="this.style.display='none'"><strong>Dosti Crown</strong></div>
+    <nav><a href="index.html">Home</a> | <a href="about.html">Vision</a> | <a href="amenities.html">Amenities</a></nav>
+  </header>
+
+  <main style="margin-top:18px">
+    <div class="card">
+      <h2>Request a callback / site visit</h2>
+      <p class="small">Fill details and our team will reach out within 24 hours (demo, client-only).</p>
+
+      <form onsubmit="contactDemo(event)">
+        <input name="name" placeholder="Your name" required />
+        <input name="phone" placeholder="Phone number" required />
+        <input name="email" placeholder="Email (optional)" type="email" />
+        <textarea name="message" placeholder="Message / preferred time"></textarea>
+        <button type="submit">Request Callback</button>
+        <div id="note" class="small" style="margin-top:8px"></div>
+      </form>
+
+      <div style="margin-top:12px" class="small">
+        <strong>Email:</strong> <a href="mailto:azim.memon@dosticrown.com">azim.memon@dosticrown.com</a><br>
+        <strong>Address:</strong> Dosti Planet North, near Shilphata, Thane - 400612
+      </div>
+    </div>
+  </main>
+
+  <footer style="margin-top:18px;color:#6b7280;border-top:1px solid rgba(0,0,0,0.04);padding-top:12px">&copy; <span id="y5"></span> Dosti Crown</footer>
+</div>
+
+<script>document.getElementById('y5').textContent=new Date().getFullYear();
+function contactDemo(e){ e.preventDefault(); const name=e.target.name.value||''; document.getElementById('note').textContent=`Thanks ${name}. We will contact you shortly (demo).`; e.target.reset(); setTimeout(()=>document.getElementById('note').textContent='',7000); }</script>
+</body>
+</html>
