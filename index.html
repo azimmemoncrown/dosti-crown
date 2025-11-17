@@ -6,6 +6,14 @@
   <title>Dosti Crown — Create a Grand Legacy</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
+/* Backdrop and ad image styles */
+.hero-backdrop{position:relative;background-image:url('assets/building.jpg');background-size:cover;background-position:center;border-radius:12px;padding:18px;color:var(--text);overflow:hidden}
+.hero-backdrop::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,0.65), rgba(255,255,255,0.35));pointer-events:none}
+.hero-backdrop .hero-content{position:relative;z-index:2}
+.ad-image{margin-top:18px;border-radius:10px;overflow:hidden;border:1px solid rgba(0,0,0,0.04)}
+.ad-image img{width:100%;display:block;object-fit:cover}
+
+
 /* Image Slider – Fade Transition */
 .slider{
   position:relative;
@@ -101,7 +109,7 @@
   </nav>
 </header>
 
-<section id="home" class="hero">
+<section id="home" class="hero hero-backdrop">
   <div class="slider">
   <img src="assets/image1.jpg" alt="img1" onerror="this.style.display='none'">
   <img src="assets/image2.jpg" alt="img2" onerror="this.style.display='none'">
@@ -144,6 +152,10 @@
     <li>Gym, jogging track & outdoor activity zones</li>
     <li>Landscaped gardens & relaxation spaces</li>
   </ul>
+</section>
+
+<section class="ad-image" aria-label="Advertisement image">
+  <img src="assets/add1.jpg" alt="Advertisement" onerror="this.style.display='none'" />
 </section>
 
 <section id="complaints" class="card">
